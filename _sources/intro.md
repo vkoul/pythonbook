@@ -1,11 +1,13 @@
-# Welcome to your Jupyter Book
+# Python Example Book
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+The Python book will introduce the relevant Python concepts that we will be using in the course. 
 
-Check out the content pages bundled with this sample book to see more.
+It covers the main topics, with the idea of introducing the key ideas. This is not an exhaustive reference, please refer to additional material in case you want to go deep into the topics
+
+This is a live book and will be constantly updated. 
+
+Happy Learning!
+
 
 ```{tableofcontents}
 ```
