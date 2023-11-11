@@ -54,6 +54,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -65,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '03Pandas_Overview';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="🐼📊 Pandas inbuilt .plot() methods" href="04_Pandas_Plotting.html" />
+    <link rel="next" title="🐼📊 Pandas inbuilt .plot() methods" href="04Pandas_Plotting.html" />
     <link rel="prev" title="🐍 Python Data Structure" href="02Python_Data_Structure.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,6 +181,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Data Analysis</span></p>
 <ul class="current nav bd-sidenav">
@@ -188,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="04_Pandas_Plotting.html">🐼📊 Pandas inbuilt .plot() methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04Pandas_Plotting.html">🐼📊 Pandas inbuilt .plot() methods</a></li>
 
 
 </ul>
@@ -389,7 +392,8 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-101">Pandas 101</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-pandas">Importing Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-pandas-dataframe">Creating Pandas DataFrame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-methods">Pandas Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-attributes-and-methods">Pandas Attributes and Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-attributes">Useful Attributes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-methods">Useful Methods</a></li>
 </ul>
 </li>
@@ -404,7 +408,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#column-value-replace">Column value replace</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-summary">Data summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-column-data">Exploring column data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manipultion">Data manipultion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manipulation">Data manipulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-data">Grouping data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-column-data-type">Changing the column data type</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">Missing values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joining-data">Joining Data</a></li>
@@ -425,11 +430,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="pandas-overview">
+  <div class="alert alert-block alert-success">
+<section class="tex2jax_ignore mathjax_ignore" id="pandas-overview">
 <h1>🐼 Pandas Overview<a class="headerlink" href="#pandas-overview" title="Permalink to this heading">#</a></h1>
 <p>👨‍🏫 <strong>Vikesh K</strong><br />
 📓 <strong>Lab 03</strong></p>
-<p>💡  <span style='font-family:Georgia'>
+</div><p>💡  <span style='font-family:Georgia'>
 <font color= darkred> <strong>“All great achievements require time”</strong>
 </font> 💡</p>
 </section>
@@ -445,12 +451,13 @@ document.write(`
 </ul>
 </li>
 </ul>
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#🐼-Pandas-Overview" data-toc-modified-id="🐼-Pandas-Overview-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>🐼 Pandas Overview</a></span></li><li><span><a href="#📝Lab-Agenda" data-toc-modified-id="📝Lab-Agenda-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>📝Lab Agenda</a></span></li><li><span><a href="#Pandas-101" data-toc-modified-id="Pandas-101-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Pandas 101</a></span><ul class="toc-item"><li><span><a href="#Importing-Pandas" data-toc-modified-id="Importing-Pandas-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Importing Pandas</a></span></li><li><span><a href="#Creating-Pandas-DataFrame" data-toc-modified-id="Creating-Pandas-DataFrame-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Creating Pandas DataFrame</a></span></li><li><span><a href="#Pandas-Methods" data-toc-modified-id="Pandas-Methods-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Pandas Methods</a></span></li><li><span><a href="#Useful-Methods" data-toc-modified-id="Useful-Methods-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Useful Methods</a></span></li></ul></li><li><span><a href="#📓-Case-Study----Titanic" data-toc-modified-id="📓-Case-Study----Titanic-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>📓 Case Study  - Titanic</a></span><ul class="toc-item"><li><span><a href="#Importing-dataset" data-toc-modified-id="Importing-dataset-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Importing dataset</a></span></li><li><span><a href="#Basic-data-investigation" data-toc-modified-id="Basic-data-investigation-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>Basic data investigation</a></span></li><li><span><a href="#Column-select" data-toc-modified-id="Column-select-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>Column select</a></span></li><li><span><a href="#Row-Filtering" data-toc-modified-id="Row-Filtering-4.4"><span class="toc-item-num">4.4&nbsp;&nbsp;</span>Row Filtering</a></span></li><li><span><a href="#Data-sorting" data-toc-modified-id="Data-sorting-4.5"><span class="toc-item-num">4.5&nbsp;&nbsp;</span>Data sorting</a></span></li><li><span><a href="#New-column-creation" data-toc-modified-id="New-column-creation-4.6"><span class="toc-item-num">4.6&nbsp;&nbsp;</span>New column creation</a></span></li><li><span><a href="#Column-rename" data-toc-modified-id="Column-rename-4.7"><span class="toc-item-num">4.7&nbsp;&nbsp;</span>Column rename</a></span></li><li><span><a href="#Column-value-replace" data-toc-modified-id="Column-value-replace-4.8"><span class="toc-item-num">4.8&nbsp;&nbsp;</span>Column value replace</a></span></li><li><span><a href="#Data-summary" data-toc-modified-id="Data-summary-4.9"><span class="toc-item-num">4.9&nbsp;&nbsp;</span>Data summary</a></span></li><li><span><a href="#Exploring-column-data" data-toc-modified-id="Exploring-column-data-4.10"><span class="toc-item-num">4.10&nbsp;&nbsp;</span>Exploring column data</a></span></li><li><span><a href="#Data-manipultion" data-toc-modified-id="Data-manipultion-4.11"><span class="toc-item-num">4.11&nbsp;&nbsp;</span>Data manipultion</a></span></li><li><span><a href="#Changing-the-column-data-type" data-toc-modified-id="Changing-the-column-data-type-4.12"><span class="toc-item-num">4.12&nbsp;&nbsp;</span>Changing the column data type</a></span></li><li><span><a href="#Missing-values" data-toc-modified-id="Missing-values-4.13"><span class="toc-item-num">4.13&nbsp;&nbsp;</span>Missing values</a></span></li><li><span><a href="#Joining-Data" data-toc-modified-id="Joining-Data-4.14"><span class="toc-item-num">4.14&nbsp;&nbsp;</span>Joining Data</a></span></li><li><span><a href="#Inbuilt-Plotting" data-toc-modified-id="Inbuilt-Plotting-4.15"><span class="toc-item-num">4.15&nbsp;&nbsp;</span>Inbuilt Plotting</a></span></li><li><span><a href="#Exporting-a-file" data-toc-modified-id="Exporting-a-file-4.16"><span class="toc-item-num">4.16&nbsp;&nbsp;</span>Exporting a file</a></span></li></ul></li><li><span><a href="#📚-Reference-material" data-toc-modified-id="📚-Reference-material-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>📚 Reference material</a></span></li></ul></div><p>💡 <strong>Jupyter Shortcuts</strong></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <ul class="simple">
 <li><p>Use <strong>Ctrl + /</strong> to comment a code</p></li>
 <li><p>Press H to see all the shortcuts</p></li>
 </ul>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pandas-101">
 <h1>Pandas 101<a class="headerlink" href="#pandas-101" title="Permalink to this heading">#</a></h1>
@@ -497,13 +504,16 @@ C:\Users\vkoul\Desktop\DA_Training_book\book2
 </section>
 <section id="creating-pandas-dataframe">
 <h2>Creating Pandas DataFrame<a class="headerlink" href="#creating-pandas-dataframe" title="Permalink to this heading">#</a></h2>
-<p><img alt="pandas_data_structure.JPG" src="attachment:pandas_data_structure.JPG" /></p>
-<p><strong>Three ways to create a pandas df :</strong></p>
+<p><img alt="pandas_data_structure" src="../images/pandas_data_structure.jpg" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Three ways to create a pandas df:</strong></p>
 <ul class="simple">
 <li><p>Dictionary</p></li>
 <li><p>List</p></li>
 <li><p>External source (csv, excel, database etc)</p></li>
 </ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## From dictionary </span>
@@ -697,13 +707,12 @@ C:\Users\vkoul\Desktop\DA_Training_book\book2
 </div></div></div>
 </div>
 </section>
-<section id="pandas-methods">
-<h2>Pandas Methods<a class="headerlink" href="#pandas-methods" title="Permalink to this heading">#</a></h2>
+<section id="pandas-attributes-and-methods">
+<h2>Pandas Attributes and Methods<a class="headerlink" href="#pandas-attributes-and-methods" title="Permalink to this heading">#</a></h2>
 <p>In python, <strong>methods</strong> are functions specfic to an object type. The pandas methods allow you to do different operations on the dataset</p>
 <p>Another aspect is <strong>attributes</strong> are like methods, but instead of transforming the variables or data they are used to give you more information about the data that you have. The attributes don’t have () at the end.</p>
 <p>Pandas is column oriented, many of the methods are applicable at a column level</p>
-<p><strong>Syntax of pandas methods</strong></p>
-<p><img alt="pandas-method_common-syntax-explanation.png" src="attachment:pandas-method_common-syntax-explanation.png" /></p>
+<p><img alt="pandas_methods" src="../images/pandas_methods.png" /></p>
 <p>Source: J Ebener</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -718,16 +727,19 @@ C:\Users\vkoul\Desktop\DA_Training_book\book2
 </div>
 </div>
 </section>
-<section id="useful-methods">
-<h2>Useful Methods<a class="headerlink" href="#useful-methods" title="Permalink to this heading">#</a></h2>
+<section id="useful-attributes">
+<h2>Useful Attributes<a class="headerlink" href="#useful-attributes" title="Permalink to this heading">#</a></h2>
 <p><strong>Data Frame metadata</strong></p>
-<p>The below four are attributes</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">df.values</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.index</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.columns</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.shape</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.values</span></code></p></li>
 </ul>
+</section>
+<section id="useful-methods">
+<h2>Useful Methods<a class="headerlink" href="#useful-methods" title="Permalink to this heading">#</a></h2>
 <p><strong>DataFrame Check</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">df.info()</span></code></p></li>
@@ -767,20 +779,15 @@ C:\Users\vkoul\Desktop\DA_Training_book\book2
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="case-study-titanic">
 <h1>📓 Case Study  - Titanic<a class="headerlink" href="#case-study-titanic" title="Permalink to this heading">#</a></h1>
-<p><img alt="titianic.jpg" src="attachment:titianic.jpg" /></p>
+<p><img alt="titanic" src="../images/titanic.jpg" /></p>
 <section id="importing-dataset">
 <h2>Importing dataset<a class="headerlink" href="#importing-dataset" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/vkoul/data/main/misc/titanic.csv&#39;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This ran&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This ran
+<span class="c1"># reading in the file</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -997,10 +1004,12 @@ memory usage: 83.7+ KB
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p><strong>Syntax to call a column from a data-frame</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">df['column_name']</span></code></p>
 <p>OR</p>
-<p><code class="docutils literal notranslate"><span class="pre">df.column_name</span></code></p>
+</div>
 <p><strong>Please select the <code class="docutils literal notranslate"><span class="pre">Name</span></code> column</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1053,70 +1062,17 @@ Name: Name, Length: 891, dtype: object
 <section id="column-select">
 <h2>Column select<a class="headerlink" href="#column-select" title="Permalink to this heading">#</a></h2>
 <p><strong>How to select specific columns in the dataframe</strong></p>
-<p>General syntax is :</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are multiple ways of choosing a particular column in pandas</p>
+<p>The common method is</p>
 <p><code class="docutils literal notranslate"><span class="pre">dataframe[&quot;column_name&quot;]</span></code></p>
-<p>In case of multiple columns:<br />
-<code class="docutils literal notranslate"><span class="pre">dataframe[[&quot;col1&quot;,</span> <span class="pre">&quot;col2&quot;]]</span></code></p>
-<p><strong>Alternatively, we can use the <code class="docutils literal notranslate"><span class="pre">.filter()</span></code> method</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">df.filter(column_name)</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PassengerId</th>
-      <th>Survived</th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>SibSp</th>
-      <th>Parch</th>
-      <th>Ticket</th>
-      <th>Fare</th>
-      <th>Cabin</th>
-      <th>Embarked</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>890</th>
-      <td>891</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Dooley, Mr. Patrick</td>
-      <td>male</td>
-      <td>32.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>370376</td>
-      <td>7.75</td>
-      <td>NaN</td>
-      <td>Q</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<p>One can also use</p>
+<p><code class="docutils literal notranslate"><span class="pre">df.column_name</span></code></p>
+<p><strong>If you wish to use the Pandas method</strong></p>
+<p>`df.filter(column_name)</p>
+<p>In case of multiple columns:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dataframe[[&quot;col1&quot;,</span> <span class="pre">&quot;col2&quot;]]</span></code></p>
 </div>
 <p><strong>Select only <code class="docutils literal notranslate"><span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">Sex</span></code> and <code class="docutils literal notranslate"><span class="pre">Age</span></code></strong></p>
 <div class="cell docutils container">
@@ -1134,7 +1090,7 @@ Name: Name, Length: 891, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">col_list</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">col_list</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1193,45 +1149,8 @@ Name: Name, Length: 891, dtype: object
       <td>35.0</td>
       <td>male</td>
     </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>886</th>
-      <td>Montvila, Rev. Juozas</td>
-      <td>27.0</td>
-      <td>male</td>
-    </tr>
-    <tr>
-      <th>887</th>
-      <td>Graham, Miss. Margaret Edith</td>
-      <td>19.0</td>
-      <td>female</td>
-    </tr>
-    <tr>
-      <th>888</th>
-      <td>Johnston, Miss. Catherine Helen "Carrie"</td>
-      <td>NaN</td>
-      <td>female</td>
-    </tr>
-    <tr>
-      <th>889</th>
-      <td>Behr, Mr. Karl Howell</td>
-      <td>26.0</td>
-      <td>male</td>
-    </tr>
-    <tr>
-      <th>890</th>
-      <td>Dooley, Mr. Patrick</td>
-      <td>32.0</td>
-      <td>male</td>
-    </tr>
   </tbody>
 </table>
-<p>891 rows × 3 columns</p>
 </div></div></div>
 </div>
 <p><strong>OR</strong></p>
@@ -1493,17 +1412,10 @@ Name: Name, Length: 891, dtype: object
 </div>
 </div>
 <p><strong>Bonus question- Are the character names shown in Titanic movie real?</strong></p>
-<p><img alt="image-2.png" src="attachment:image-2.png" /></p>
+<p><img alt="actors" src="../images/actors.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 💪 Please write the relevant code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df[&#39;Name&#39;]</span>
 </pre></div>
 </div>
 </div>
@@ -1706,13 +1618,6 @@ Name: Name, Length: 891, dtype: object
 </div></div></div>
 </div>
 <p><strong>Sort the data by Fare and check the highest price</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 💪 Please write the relevant code here</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;Fare&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -3032,14 +2937,17 @@ Name: proportion, dtype: float64
 </div>
 </div>
 </section>
-<section id="data-manipultion">
-<h2>Data manipultion<a class="headerlink" href="#data-manipultion" title="Permalink to this heading">#</a></h2>
+<section id="data-manipulation">
+<h2>Data manipulation<a class="headerlink" href="#data-manipulation" title="Permalink to this heading">#</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Useful functions are (click on the links) :</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pbpython.com/pandas-pivot-table-explained.html"><code class="docutils literal notranslate"><span class="pre">df.pivot_table()</span></code></a></p></li>
 <li><p><a class="reference external" href="https://towardsdatascience.com/reshaping-a-dataframe-with-pandas-stack-and-unstack-925dc9ce1289"><code class="docutils literal notranslate"><span class="pre">df.unstack()</span></code></a></p></li>
 <li><p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/pandas-melt-unmelt-pivot-function"><code class="docutils literal notranslate"><span class="pre">df.melt()</span></code></a></p></li>
 </ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example code</span>
@@ -3181,8 +3089,11 @@ Name: proportion, dtype: float64
 </table>
 </div></div></div>
 </div>
+</section>
+<section id="grouping-data">
+<h2>Grouping data<a class="headerlink" href="#grouping-data" title="Permalink to this heading">#</a></h2>
 <p><strong>Group by allows you to calculate numeric summaries across a categorical value</strong></p>
-<p><img alt="split_apply_combine.png" src="attachment:split_apply_combine.png" /></p>
+<p><img alt="split_apply_combine" src="../images/split_apply_combine.png" /></p>
 <p><strong>What is the average age for each gender group</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3782,6 +3693,8 @@ Name: Pclass, Length: 891, dtype: object
 </section>
 <section id="missing-values">
 <h2>Missing values<a class="headerlink" href="#missing-values" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p><strong>Pandas has got extensive functions to deal with missing data</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">df.isna()</span></code> or <code class="docutils literal notranslate"><span class="pre">df.isnull()</span></code></p></li>
@@ -3789,6 +3702,7 @@ Name: Pclass, Length: 891, dtype: object
 <li><p><code class="docutils literal notranslate"><span class="pre">df.fillna()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.dropna()</span></code></p></li>
 </ul>
+</div>
 <p><strong>Get the sum of missing values across columns</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3882,7 +3796,8 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the new column at the end</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -4014,7 +3929,7 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subseting the data only for rows with more than 1 missing rows</span>
-<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;missing_rows &gt; 1&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;missing_rows &gt; 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -4139,111 +4054,8 @@ dtype: float64
       <td>Queenstown</td>
       <td>2</td>
     </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>859</th>
-      <td>860</td>
-      <td>0</td>
-      <td>No</td>
-      <td>3</td>
-      <td>Razi, Mr. Raihed</td>
-      <td>male</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2629</td>
-      <td>7.2292</td>
-      <td>NaN</td>
-      <td>Cherbourg</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>863</th>
-      <td>864</td>
-      <td>0</td>
-      <td>No</td>
-      <td>3</td>
-      <td>Sage, Miss. Dorothy Edith "Dolly"</td>
-      <td>female</td>
-      <td>NaN</td>
-      <td>8</td>
-      <td>2</td>
-      <td>CA. 2343</td>
-      <td>69.5500</td>
-      <td>NaN</td>
-      <td>Southampton</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>868</th>
-      <td>869</td>
-      <td>0</td>
-      <td>No</td>
-      <td>3</td>
-      <td>van Melkebeke, Mr. Philemon</td>
-      <td>male</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>0</td>
-      <td>345777</td>
-      <td>9.5000</td>
-      <td>NaN</td>
-      <td>Southampton</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>878</th>
-      <td>879</td>
-      <td>0</td>
-      <td>No</td>
-      <td>3</td>
-      <td>Laleff, Mr. Kristo</td>
-      <td>male</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>0</td>
-      <td>349217</td>
-      <td>7.8958</td>
-      <td>NaN</td>
-      <td>Southampton</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>888</th>
-      <td>889</td>
-      <td>0</td>
-      <td>No</td>
-      <td>3</td>
-      <td>Johnston, Miss. Catherine Helen "Carrie"</td>
-      <td>female</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>2</td>
-      <td>W./C. 6607</td>
-      <td>23.4500</td>
-      <td>NaN</td>
-      <td>Southampton</td>
-      <td>2</td>
-    </tr>
   </tbody>
 </table>
-<p>158 rows × 14 columns</p>
 </div></div></div>
 </div>
 <p><strong>Find column which have atleast three missing values</strong></p>
@@ -4260,25 +4072,25 @@ dtype: float64
 <p><strong>While working on a problem, you would require to join datasets from different sources. Very important to understand different joins and how to do it in python</strong></p>
 <p><strong>The major joins used are: <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">inner</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">cross</span></code></strong></p>
 <p>The below animations are from <a class="reference external" href="https://www.garrickadenbuie.com/project/tidyexplain/#tidy-data">here</a></p>
-<p><img alt="original-dfs.png" src="attachment:original-dfs.png" /></p>
+<p><img alt="xy_table" src="../images/xy_table.png" /></p>
 <p><strong>Left join</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;column_name&#39;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span> 
 
 </pre></div>
 </div>
-<p><img alt="left-join-extra.gif" src="attachment:left-join-extra.gif" /></p>
+<p><img alt="left_join" src="../images/left_join.gif" /></p>
 <p><strong>Inner join</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;column_name&#39;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;inner&#39;</span><span class="p">)</span> 
 
 </pre></div>
 </div>
-<p><img alt="inner-join.gif" src="attachment:inner-join.gif" /></p>
+<p><img alt="inner_join" src="../images/inner_join.gif" /></p>
 <p><strong>Right join</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;column_name&#39;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span> 
 
 </pre></div>
 </div>
-<p><img alt="right-join.gif" src="attachment:right-join.gif" /></p>
+<p><img alt="right_join" src="../images/right_join.gif" /></p>
 <p><strong>Lets create a class data-frame which we will join the to titanic dataset</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4533,8 +4345,11 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
-<p><strong>💡Best Way to learn Pandas is to download datasets, prepare a list of questions and answer those questions using Pandas</strong>💡</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Best Way to learn Pandas is to download datasets, prepare a list of questions and answer those questions using Pandas</strong></p>
 <p><strong><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle Datasets</a> is a good website to get relevant website</strong></p>
+</div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="reference-material">
@@ -4596,7 +4411,7 @@ Name: count, dtype: int64
       </div>
     </a>
     <a class="right-next"
-       href="04_Pandas_Plotting.html"
+       href="04Pandas_Plotting.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -4624,7 +4439,8 @@ Name: count, dtype: int64
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-101">Pandas 101</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-pandas">Importing Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-pandas-dataframe">Creating Pandas DataFrame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-methods">Pandas Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-attributes-and-methods">Pandas Attributes and Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-attributes">Useful Attributes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-methods">Useful Methods</a></li>
 </ul>
 </li>
@@ -4639,7 +4455,8 @@ Name: count, dtype: int64
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#column-value-replace">Column value replace</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-summary">Data summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-column-data">Exploring column data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manipultion">Data manipultion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manipulation">Data manipulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-data">Grouping data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-column-data-type">Changing the column data type</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">Missing values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joining-data">Joining Data</a></li>

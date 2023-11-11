@@ -54,6 +54,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -180,6 +181,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Data Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -188,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="04_Pandas_Plotting.html">🐼📊 Pandas inbuilt .plot() methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04Pandas_Plotting.html">🐼📊 Pandas inbuilt .plot() methods</a></li>
 
 
 </ul>
@@ -388,24 +391,27 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#theory">Theory</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structure-summary">Data Structure Summary</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">Dictionary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-functions">Key functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-functions">List functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary-functions">Dictionary Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-functions">Tuple Functions</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#key-functions">Key Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-functions">List Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary-functions">Dictionary Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-functions">Tuple Functions</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">❓Exercises</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tuples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dictionary</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-further-reading">📚 Resources/Further Reading</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">📚 Resources</a></li>
 </ul>
 
             </nav>
@@ -418,10 +424,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-data-structure">
+  <div class="alert alert-block alert-success">
+<section class="tex2jax_ignore mathjax_ignore" id="python-data-structure">
 <h1>🐍 Python Data Structure<a class="headerlink" href="#python-data-structure" title="Permalink to this heading">#</a></h1>
 <p>👨‍🏫 <strong>Vikesh K</strong><br />
 📓 <strong>Lab 02</strong></p>
+</div>
 <p>💡  <span style='font-family:Georgia'>
 <font color= darkred> <em><strong>Don’t learn and then start, start and then learn - Anon</strong></em>
 </font> 💡</p>
@@ -436,21 +444,18 @@ document.write(`
 <li><p>Tuples</p></li>
 </ul>
 </li>
-<li><p>Pandas Intro</p>
-<ul>
-<li><p>Data analysis using Pandas</p></li>
-</ul>
-</li>
 <li><p>Exercises</p></li>
 </ul>
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#🐍-Python-Data-Structure" data-toc-modified-id="🐍-Python-Data-Structure-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>🐍 Python Data Structure</a></span></li><li><span><a href="#📝Lab-Agenda" data-toc-modified-id="📝Lab-Agenda-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>📝Lab Agenda</a></span></li><li><span><a href="#Theory" data-toc-modified-id="Theory-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Theory</a></span><ul class="toc-item"><li><span><a href="#Data-Structure-Summary" data-toc-modified-id="Data-Structure-Summary-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Data Structure Summary</a></span></li><li><span><a href="#Lists" data-toc-modified-id="Lists-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Lists</a></span></li><li><span><a href="#Tuples" data-toc-modified-id="Tuples-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Tuples</a></span></li><li><span><a href="#Dictionary" data-toc-modified-id="Dictionary-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Dictionary</a></span></li><li><span><a href="#Key-functions" data-toc-modified-id="Key-functions-3.5"><span class="toc-item-num">3.5&nbsp;&nbsp;</span>Key functions</a></span><ul class="toc-item"><li><span><a href="#List-functions" data-toc-modified-id="List-functions-3.5.1"><span class="toc-item-num">3.5.1&nbsp;&nbsp;</span>List functions</a></span></li><li><span><a href="#Dictionary-Functions" data-toc-modified-id="Dictionary-Functions-3.5.2"><span class="toc-item-num">3.5.2&nbsp;&nbsp;</span>Dictionary Functions</a></span></li><li><span><a href="#Tuple-Functions" data-toc-modified-id="Tuple-Functions-3.5.3"><span class="toc-item-num">3.5.3&nbsp;&nbsp;</span>Tuple Functions</a></span></li></ul></li></ul></li><li><span><a href="#❓Exercises" data-toc-modified-id="❓Exercises-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>❓Exercises</a></span><ul class="toc-item"><li><span><a href="#List" data-toc-modified-id="List-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>List</a></span></li><li><span><a href="#Tuples" data-toc-modified-id="Tuples-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>Tuples</a></span></li><li><span><a href="#Dictionary" data-toc-modified-id="Dictionary-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>Dictionary</a></span></li></ul></li><li><span><a href="#📚-Resources/Further-Reading" data-toc-modified-id="📚-Resources/Further-Reading-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>📚 Resources/Further Reading</a></span></li></ul></div></section>
+<div/></section>
 <section class="tex2jax_ignore mathjax_ignore" id="theory">
 <h1>Theory<a class="headerlink" href="#theory" title="Permalink to this heading">#</a></h1>
 <section id="data-structure-summary">
 <h2>Data Structure Summary<a class="headerlink" href="#data-structure-summary" title="Permalink to this heading">#</a></h2>
-<p><img alt="data_structure_summary.JPG" src="attachment:data_structure_summary.JPG" /></p>
+<p><img alt="data_structure_summary" src="../images/data_structure_summary.jpg" /></p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="properties">
+<h1>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h1>
 <section id="lists">
 <h2>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
@@ -469,6 +474,7 @@ document.write(`
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.extend()</span></code> method can be used to add elements to the list</p></li>
 </ul>
+<p><img alt="list_elements" src="../images/list_elements.png" /></p>
 </section>
 <section id="tuples">
 <h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h2>
@@ -505,14 +511,14 @@ document.write(`
 <li><p>Compared to lists, instead of the numerical indexes, dictionaries have keys.</p></li>
 <li><p>These keys are used to access values within a dictionary.</p></li>
 </ul>
-<p><img alt="dictionary.png" src="attachment:dictionary.png" /></p>
-</div>    <p><img alt="list_str.png" src="attachment:list_str.png" /></p>
+<p><img alt="list_vs_dictionary" src="../images/list_vs_dictionary.jpg" /></p>
 </section>
-<section id="key-functions">
-<h2>Key functions<a class="headerlink" href="#key-functions" title="Permalink to this heading">#</a></h2>
-<p><strong>Below is the list of key function associated with each data structure. Please type each of the code individually and see how it works</strong></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="key-functions">
+<h1>Key Functions<a class="headerlink" href="#key-functions" title="Permalink to this heading">#</a></h1>
+<p><strong>Please type each of the code individually and see how it works</strong></p>
 <section id="list-functions">
-<h3>List functions<a class="headerlink" href="#list-functions" title="Permalink to this heading">#</a></h3>
+<h2>List Functions<a class="headerlink" href="#list-functions" title="Permalink to this heading">#</a></h2>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a sample list</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 
@@ -539,12 +545,11 @@ document.write(`
 <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>  <span class="c1"># Returns the number of elements in the list</span>
 <span class="n">count</span> <span class="o">=</span> <span class="n">my_list</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Returns the number of occurrences of 5 in the list</span>
 <span class="n">index</span> <span class="o">=</span> <span class="n">my_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># Returns the index of the first occurrence of 6 in the list</span>
-
 </pre></div>
 </div>
 </section>
 <section id="dictionary-functions">
-<h3>Dictionary Functions<a class="headerlink" href="#dictionary-functions" title="Permalink to this heading">#</a></h3>
+<h2>Dictionary Functions<a class="headerlink" href="#dictionary-functions" title="Permalink to this heading">#</a></h2>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a sample dictionary</span>
 <span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 
@@ -565,9 +570,8 @@ document.write(`
 </div>
 </section>
 <section id="tuple-functions">
-<h3>Tuple Functions<a class="headerlink" href="#tuple-functions" title="Permalink to this heading">#</a></h3>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># Creating a sample tuple</span>
+<h2>Tuple Functions<a class="headerlink" href="#tuple-functions" title="Permalink to this heading">#</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a sample tuple</span>
 <span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
 <span class="c1"># Accessing tuple elements</span>
@@ -582,133 +586,95 @@ document.write(`
 </div>
 </section>
 </section>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="exercises">
-<h1>❓Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, 6]
-&lt;class &#39;list&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Indexing and calling</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">925</span><span class="p">,</span><span class="mi">982</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">new_list</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>982
-</pre></div>
-</div>
-</div>
-</div>
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
 <section id="list">
 <h2>List<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># length - How many elements are in the list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># what is the type of x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the 3rd element of the list </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q  Extract London from the sentence</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;London is a big city&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x[start:stop:step]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Q  What will be the result of <code class="docutils literal notranslate"><span class="pre">[1,2,3]</span> <span class="pre">+</span> <span class="pre">[1,1,1]</span></code></strong></p>
 <p><em>Hint</em>: The mathematical operations on <code class="docutils literal notranslate"><span class="pre">list</span></code> are very similar to how they work on <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 1, 1, 1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>Q What will be the result of <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[1,2,3]</span> <span class="pre">and</span> <span class="pre">x.extend([1,1,1])</span></code></strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>You will notice that the memory location of z remains the same in the below example. This highlights the property that list are mutable</p>
 <p>Visualise the steps on <a class="reference external" href="http://www.pythontutor.com/visualize.html#code=x%20%3D%20%5B1,2,3%5D%0A%0Aprint%28x%29%0Aprint%28len%28x%29%29%0Aprint%28%22--------%22%29%0A%0A%23%20extending%20%0Ax.extend%28%5B1,1,1%5D%29%0Aprint%28x%29%0Aprint%28len%28x%29%29&amp;cumulative=false&amp;curInstr=7&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">here</a></p>
 <p><strong>Q What will be the result of <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[1,2,3]</span> <span class="pre">and</span> <span class="pre">x.append([1,1,1])</span></code></strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Visualise the steps <a class="reference external" href="http://www.pythontutor.com/visualize.html#code=x%20%3D%20%5B1,2,3%5D%0A%0Aprint%28x%29%0Aprint%28len%28x%29%29%0Aprint%28%22--------%22%29%0A%0A%23%20extending%20%0Ax.append%28%5B1,1,1%5D%29%0Aprint%28x%29&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">here</a></p>
 <p><strong>Q What will happen when we do <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">[2,3,4]</span></code>; <code class="docutils literal notranslate"><span class="pre">z[0]</span> <span class="pre">=</span> <span class="pre">5</span></code></strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Q On doing the below steps?</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">q</span> <span class="pre">=</span> <span class="pre">[1,2,3]</span></code></p></li>
@@ -716,28 +682,61 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">r[0]</span> <span class="pre">=</span> <span class="pre">9</span></code></p></li>
 </ul>
 <p><strong>What will be <code class="docutils literal notranslate"><span class="pre">q[0]</span></code>?</strong></p>
-<p>Visualize the steps <a class="reference external" href="http://www.pythontutor.com/visualize.html#code=q%20%3D%20%5B1,2,3%5D%0Aq%0A%0Ar%20%3D%20q%0A%0Aprint%28r%29%0A%0Ar%5B0%5D%20%3D%209%0Aprint%28r%29%0A%0Aprint%28q%5B0%5D%29%0Aprint%28q%29&amp;cumulative=false&amp;curInstr=8&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">here</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualise the steps <a class="reference external" href="http://www.pythontutor.com/visualize.html#code=q%20%3D%20%5B1,2,3%5D%0Aq%0A%0Ar%20%3D%20q%0A%0Aprint%28r%29%0A%0Ar%5B0%5D%20%3D%209%0Aprint%28r%29%0A%0Aprint%28q%5B0%5D%29%0Aprint%28q%29&amp;cumulative=false&amp;curInstr=8&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">here</a></p>
 <p><strong>Q If <code class="docutils literal notranslate"><span class="pre">S</span></code> is a list what does the following syntax do: <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">=</span> <span class="pre">S[:]</span></code>?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">[:]</span></code> creates a deep copy and then s and t are not referencing to the same memory block.<br />
 Visualzise the steps <a class="reference external" href="http://www.pythontutor.com/visualize.html#code=s%20%3D%20%5B1,2,3%5D%0Aprint%28s%29%0Aprint%28s%5B%3A%5D%29%0A%0A%0A%0At%20%3D%20s%5B%3A%5D%0Aprint%28t%29%0A%0At%5B0%5D%20%3D%209%0A%0Aprint%28s%5B0%5D%29&amp;cumulative=false&amp;curInstr=7&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">here</a></p>
 <p><strong>Q Consider the following list : <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">[&quot;john&quot;,11,1.4]</span></code> . What will list <code class="docutils literal notranslate"><span class="pre">A</span></code> contain after the following command is run: <code class="docutils literal notranslate"><span class="pre">del(A[0])</span></code>?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Q In the list <code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">=</span> <span class="pre">[1,2,[3,'a'],[4,'b']]</span></code>. How to extract <code class="docutils literal notranslate"><span class="pre">'b'</span></code>?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Q What is the result of the following operation: <code class="docutils literal notranslate"><span class="pre">'P,Q,R,S'.split(',')</span></code>? What will be the type of the output?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id1">
 <h2>Tuples<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p><strong>Q What is the result of the following: <code class="docutils literal notranslate"><span class="pre">len((&quot;salt&quot;,10,1.2,</span> <span class="pre">&quot;sugar&quot;,10))</span></code></strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tuple1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tuple1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;a&#39;, &#39;b&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3)
 &lt;class &#39;tuple&#39;&gt;
 </pre></div>
 </div>
@@ -745,7 +744,7 @@ Visualzise the steps <a class="reference external" href="http://www.pythontutor.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">tuple1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuple1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -755,21 +754,38 @@ Visualzise the steps <a class="reference external" href="http://www.pythontutor.
 </div>
 </div>
 </div>
+<p><strong>Q What is the result of the following: <code class="docutils literal notranslate"><span class="pre">len((&quot;salt&quot;,10,1.2,</span> <span class="pre">&quot;sugar&quot;,10))</span></code></strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tuple1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;a&#39;, &#39;b&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>Q Consider the tuple <code class="docutils literal notranslate"><span class="pre">tuple_a</span> <span class="pre">=</span> <span class="pre">(&quot;P&quot;,&quot;Q&quot;,&quot;R&quot;)</span></code>, what is the result of the following operation <code class="docutils literal notranslate"><span class="pre">tuple_a[-1]?</span></code></strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Q Consider the <code class="docutils literal notranslate"><span class="pre">tuple</span> <span class="pre">A=((11,12),[21,22])</span></code>, that contains a tuple and list. What is the result of the following operation <code class="docutils literal notranslate"><span class="pre">A[1]</span></code></strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Q Consider the <code class="docutils literal notranslate"><span class="pre">tuple</span> <span class="pre">A=((11,12),[21,22])</span></code>, that contains a tuple and list. What is the result of the following operation <code class="docutils literal notranslate"><span class="pre">A[0][1]</span></code>?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here </span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id2">
 <h2>Dictionary<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
@@ -777,20 +793,19 @@ Visualzise the steps <a class="reference external" href="http://www.pythontutor.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a sample dictionary</span>
-<span class="n">release_year_dict</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">3</span><span class="p">):</span> <span class="s2">&quot;1982&quot;</span><span class="p">,</span>
+<span class="n">release_year_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Random_Album&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;1982&quot;</span><span class="p">,</span><span class="s2">&quot;1984&quot;</span><span class="p">],</span>
                      <span class="s2">&quot;Back in Black&quot;</span><span class="p">:</span> <span class="s2">&quot;1980&quot;</span><span class="p">,</span> \
                     <span class="s2">&quot;The Dark Side of the Moon&quot;</span><span class="p">:</span> <span class="s2">&quot;1973&quot;</span><span class="p">,</span> 
                      <span class="s2">&quot;The Bodyguard&quot;</span><span class="p">:</span> <span class="s2">&quot;1992&quot;</span><span class="p">,</span> \
                     <span class="s2">&quot;Bat Out of Hell&quot;</span><span class="p">:</span> <span class="s2">&quot;1977&quot;</span><span class="p">,</span> 
                      <span class="s2">&quot;Their Greatest Hits (1971-1975)&quot;</span><span class="p">:</span> <span class="s2">&quot;1976&quot;</span><span class="p">,</span> \
-                    <span class="s2">&quot;Saturday Night Fever&quot;</span><span class="p">:</span> <span class="s2">&quot;1977&quot;</span><span class="p">,</span> <span class="s2">&quot;Rumours&quot;</span><span class="p">:</span> <span class="s2">&quot;1977&quot;</span>
-                    <span class="p">}</span>
+                    <span class="s2">&quot;Saturday Night Fever&quot;</span><span class="p">:</span> <span class="s2">&quot;1977&quot;</span><span class="p">,</span> <span class="s2">&quot;Rumours&quot;</span><span class="p">:</span> <span class="s2">&quot;1977&quot;</span><span class="p">}</span>
 <span class="n">release_year_dict</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{3: &#39;1982&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Random_Album&#39;: [&#39;1982&#39;, &#39;1984&#39;],
  &#39;Back in Black&#39;: &#39;1980&#39;,
  &#39;The Dark Side of the Moon&#39;: &#39;1973&#39;,
  &#39;The Bodyguard&#39;: &#39;1992&#39;,
@@ -804,45 +819,13 @@ Visualzise the steps <a class="reference external" href="http://www.pythontutor.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">issues</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;agoda&quot;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span> 
-          <span class="s2">&quot;pl&quot;</span><span class="p">:</span> <span class="mi">1245</span><span class="p">}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">issues</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;agoda&#39;: 1234, &#39;pl&#39;: 1245}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-5
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all the keys in dictionary</span>
 <span class="n">release_year_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([3, &#39;Back in Black&#39;, &#39;The Dark Side of the Moon&#39;, &#39;The Bodyguard&#39;, &#39;Bat Out of Hell&#39;, &#39;Their Greatest Hits (1971-1975)&#39;, &#39;Saturday Night Fever&#39;, &#39;Rumours&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;Random_Album&#39;, &#39;Back in Black&#39;, &#39;The Dark Side of the Moon&#39;, &#39;The Bodyguard&#39;, &#39;Bat Out of Hell&#39;, &#39;Their Greatest Hits (1971-1975)&#39;, &#39;Saturday Night Fever&#39;, &#39;Rumours&#39;])
 </pre></div>
 </div>
 </div>
@@ -855,19 +838,19 @@ Visualzise the steps <a class="reference external" href="http://www.pythontutor.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_values([&#39;1982&#39;, &#39;1980&#39;, &#39;1973&#39;, &#39;1992&#39;, &#39;1977&#39;, &#39;1976&#39;, &#39;1977&#39;, &#39;1977&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_values([[&#39;1982&#39;, &#39;1984&#39;], &#39;1980&#39;, &#39;1973&#39;, &#39;1992&#39;, &#39;1977&#39;, &#39;1976&#39;, &#39;1977&#39;, &#39;1977&#39;])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">release_year_dict</span><span class="p">[</span><span class="s1">&#39;The Dark Side of the Moon&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">release_year_dict</span><span class="p">[</span><span class="s1">&#39;Back in Black&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1973&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1980&#39;
 </pre></div>
 </div>
 </div>
@@ -890,8 +873,8 @@ Visualzise the steps <a class="reference external" href="http://www.pythontutor.
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="resources-further-reading">
-<h1>📚 Resources/Further Reading<a class="headerlink" href="#resources-further-reading" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="resources">
+<h1>📚 Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p><strong><a class="reference external" href="http://www.pythontutor.com/">Python Tutor</a></strong> - A very good website to visualise the steps in Python. This is helpful to develop intuition behind the steps</p></li>
 </ul>
@@ -971,24 +954,27 @@ Visualzise the steps <a class="reference external" href="http://www.pythontutor.
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#theory">Theory</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structure-summary">Data Structure Summary</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">Dictionary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-functions">Key functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-functions">List functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary-functions">Dictionary Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-functions">Tuple Functions</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#key-functions">Key Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-functions">List Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary-functions">Dictionary Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-functions">Tuple Functions</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">❓Exercises</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tuples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dictionary</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-further-reading">📚 Resources/Further Reading</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">📚 Resources</a></li>
 </ul>
 
   </nav></div>
