@@ -24,7 +24,7 @@ X_train, X_test, y_train, y_test = train_test_split(data, target, test_size = 0.
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mNameError[0m                                 Traceback (most recent call last)
-[1;32m~\AppData\Local\Temp\1\ipykernel_14328\2644079466.py[0m in [0;36m<module>[1;34m[0m
+[1;32m~\AppData\Local\Temp\1\ipykernel_16164\2644079466.py[0m in [0;36m<module>[1;34m[0m
 [1;32m----> 1[1;33m [0mX_train[0m[1;33m,[0m [0mX_test[0m[1;33m,[0m [0my_train[0m[1;33m,[0m [0my_test[0m [1;33m=[0m [0mtrain_test_split[0m[1;33m([0m[0mdata[0m[1;33m,[0m [0mtarget[0m[1;33m,[0m [0mtest_size[0m [1;33m=[0m [1;36m0.2[0m[1;33m,[0m [0mshuffle[0m[1;33m=[0m [1;32mFalse[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
 [0m[0;32m      2[0m [1;33m[0m[0m
 [0;32m      3[0m [1;31m# By doing shuffle = False, the last 20% of data will be used for split[0m[1;33m[0m[1;33m[0m[0m
