@@ -1,0 +1,1100 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Evaluate the generalization performance &#8212; Python Examples</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Inria_ML_Course';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Python Examples - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Python Examples - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Python Example Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01Python_Data_Types.html">🐍 Python Data Types</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="02Python_Data_Structure.html">🐍 Python Data Structure</a></li>
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03Pandas_Overview.html">🐼 Pandas Overview</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="04Pandas_Plotting.html">🐼📊 Pandas inbuilt .plot() methods</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Pre-processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05Missing_Values_Treatment.html">🔎 Missing Values Treatment</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06Scaling_Variables.html">⚖️ Data Scaling Methods</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ML Techniques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07K-NN_Hyperparameters.html">📏K-NN Hyperparamaters</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08DecisionTree_Exploration.html">🌲 Decision Tree Visualization</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FInria_ML_Course.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Inria_ML_Course.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Evaluate the generalization performance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Evaluate the generalization performance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#viz-sklearn-pipelines">Viz Sklearn Pipelines</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-pipeline">Creating a pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-and-underfitting">Overfitting and underfitting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-training-and-test-errors">Comparing Training and Test Errors</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a class="reference external" href="https://www.youtube.com/playlist?list=PL2okA_2qDJ-m44KooOI7x8tu85wr4ez4f">https://www.youtube.com/playlist?list=PL2okA_2qDJ-m44KooOI7x8tu85wr4ez4f</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+
+<span class="n">digits</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">70</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="evaluate-the-generalization-performance">
+<h1>Evaluate the generalization performance<a class="headerlink" href="#evaluate-the-generalization-performance" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=kLWvI9fSnKc&amp;list=PL2okA_2qDJ-m44KooOI7x8tu85wr4ez4f&amp;index=4&amp;ab_channel=InriaLearningLab">Video</a></p>
+<p>Distinguish memorisation from ability to learn the pattern in the data. We ensure that by doing a train-test split</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># By doing shuffle = False, the last 20% of data will be used for split </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="mi">1</span>\<span class="n">ipykernel_14328</span>\<span class="mf">2644079466.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># By doing shuffle = False, the last 20% of data will be used for split</span>
+
+<span class="ne">NameError</span>: name &#39;target&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Train Test split is important as</p>
+<ul class="simple">
+<li><p>Score of the model depends on the train-test split</p></li>
+<li><p>representative of each element in the set</p></li>
+</ul>
+<p>A more systematic way of evaluating the generalization is through cross-validation. It will remove the perfomance based on chance.</p>
+<p>CV is repeating the split so that traing and testing are different for each evaluation set</p>
+<p>The basic split in sklearn is KFold, in which we will iterate the different subsets that are being evaluated</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span> 
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
+
+<span class="n">cv</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How do we measure the accuracy</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+
+<span class="c1"># test_scores = cross_val_score(model, data, target, cv = cv)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For each of the above fold, we can calculate the accuracy. That means for each of the above fold, we will get the accuracy score and the variation in these scores gives us a hint on the uncertainty involved in the expected generalization performance.</p>
+<p><strong>Other technique for cross validation is <code class="docutils literal notranslate"><span class="pre">ShuffleSplit</span></code>. Number of splits doesn’t determine the size of train and test</strong></p>
+<p>In this process, we extract a set of values randomly and then put it back And again use it later. In this process, its important to remember that the more splits are made, the more repetition there will be of the cards. Although, it should not be a problem for big datasets</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ShuffleSplit</span>
+
+<span class="n">cv</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So for the evaluation of the variablity of the generalization, the cross-validation step is very important</p>
+</section>
+<section id="viz-sklearn-pipelines">
+<h1>Viz Sklearn Pipelines<a class="headerlink" href="#viz-sklearn-pipelines" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=D0Nyumrs0G4&amp;list=PL2okA_2qDJ-m44KooOI7x8tu85wr4ez4f&amp;index=6&amp;ab_channel=InriaLearningLab">Video Link</a></p>
+<p>Pipelines are a very useful technique to combine multiple data-transformation process along with the classification/regression step and allow us to do it seamlessly. The pipeline once defined can itself be treated as a ML model</p>
+<ul class="simple">
+<li><p>It helps avoid repetitive coding</p></li>
+<li><p>Prevents data-leaking between training and testing set during validation</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/INRIA/scikit-learn-mooc/main/datasets/house_prices.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">na_values</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_name</span> <span class="o">=</span> <span class="s2">&quot;SalePrice&quot;</span>
+
+<span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">target_name</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="n">target_name</span><span class="p">]</span>
+
+<span class="c1"># converting continous to discrete values</span>
+<span class="n">target</span> <span class="o">=</span> <span class="p">(</span><span class="n">target</span> <span class="o">&gt;</span><span class="mi">200_000</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>MSSubClass</th>
+      <th>MSZoning</th>
+      <th>LotFrontage</th>
+      <th>LotArea</th>
+      <th>Street</th>
+      <th>Alley</th>
+      <th>LotShape</th>
+      <th>LandContour</th>
+      <th>Utilities</th>
+      <th>...</th>
+      <th>ScreenPorch</th>
+      <th>PoolArea</th>
+      <th>PoolQC</th>
+      <th>Fence</th>
+      <th>MiscFeature</th>
+      <th>MiscVal</th>
+      <th>MoSold</th>
+      <th>YrSold</th>
+      <th>SaleType</th>
+      <th>SaleCondition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>60</td>
+      <td>RL</td>
+      <td>65.0</td>
+      <td>8450</td>
+      <td>Pave</td>
+      <td>NaN</td>
+      <td>Reg</td>
+      <td>Lvl</td>
+      <td>AllPub</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2008</td>
+      <td>WD</td>
+      <td>Normal</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>20</td>
+      <td>RL</td>
+      <td>80.0</td>
+      <td>9600</td>
+      <td>Pave</td>
+      <td>NaN</td>
+      <td>Reg</td>
+      <td>Lvl</td>
+      <td>AllPub</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>5</td>
+      <td>2007</td>
+      <td>WD</td>
+      <td>Normal</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>60</td>
+      <td>RL</td>
+      <td>68.0</td>
+      <td>11250</td>
+      <td>Pave</td>
+      <td>NaN</td>
+      <td>IR1</td>
+      <td>Lvl</td>
+      <td>AllPub</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>9</td>
+      <td>2008</td>
+      <td>WD</td>
+      <td>Normal</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>70</td>
+      <td>RL</td>
+      <td>60.0</td>
+      <td>9550</td>
+      <td>Pave</td>
+      <td>NaN</td>
+      <td>IR1</td>
+      <td>Lvl</td>
+      <td>AllPub</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2006</td>
+      <td>WD</td>
+      <td>Abnorml</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>60</td>
+      <td>RL</td>
+      <td>84.0</td>
+      <td>14260</td>
+      <td>Pave</td>
+      <td>NaN</td>
+      <td>IR1</td>
+      <td>Lvl</td>
+      <td>AllPub</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>12</td>
+      <td>2008</td>
+      <td>WD</td>
+      <td>Normal</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 80 columns</p>
+</div></div></div>
+</div>
+<p><strong>Cherry Pick the values</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LotArea&#39;</span><span class="p">,</span> <span class="s2">&quot;FullBath&quot;</span><span class="p">,</span> <span class="s1">&#39;HalfBath&#39;</span><span class="p">]</span>
+
+<span class="n">categorical_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Neighborhood&#39;</span><span class="p">,</span> <span class="s2">&quot;HouseStyle&quot;</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">numeric_features</span> <span class="o">+</span> <span class="n">categorical_features</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>LotArea</th>
+      <th>FullBath</th>
+      <th>HalfBath</th>
+      <th>Neighborhood</th>
+      <th>HouseStyle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8450</td>
+      <td>2</td>
+      <td>1</td>
+      <td>CollgCr</td>
+      <td>2Story</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9600</td>
+      <td>2</td>
+      <td>0</td>
+      <td>Veenker</td>
+      <td>1Story</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>11250</td>
+      <td>2</td>
+      <td>1</td>
+      <td>CollgCr</td>
+      <td>2Story</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9550</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Crawfor</td>
+      <td>2Story</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>14260</td>
+      <td>2</td>
+      <td>1</td>
+      <td>NoRidge</td>
+      <td>2Story</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LotArea         0
+FullBath        0
+HalfBath        0
+Neighborhood    0
+HouseStyle      0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<section id="creating-a-pipeline">
+<h2>Creating a pipeline<a class="headerlink" href="#creating-a-pipeline" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span> 
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Define the transformation steps</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;imputer&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="s1">&#39;median&#39;</span><span class="p">))</span>
+    <span class="p">,(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
+<span class="p">])</span>
+
+
+<span class="c1"># categorical data </span>
+<span class="n">categorical_transformer</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span> <span class="o">=</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span> <span class="c1"># whenver there is a missing value. It will assign it as zero</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Using the <code class="docutils literal notranslate"><span class="pre">Column</span> <span class="pre">Transformer</span></code></strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+
+<span class="n">preproccesor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span><span class="n">transformers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="n">numeric_transformer</span><span class="p">,</span> <span class="n">numeric_features</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">categorical_transformer</span><span class="p">,</span> <span class="n">categorical_features</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Chain the transformation and Model</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;preprocessor&#39;</span><span class="p">,</span> <span class="n">preproccesor</span><span class="p">)</span>
+    <span class="p">,(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Visualize the pipeline</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">set_config</span>
+
+<span class="n">set_config</span><span class="p">(</span><span class="n">display</span> <span class="o">=</span> <span class="s1">&#39;diagram&#39;</span><span class="p">)</span>
+
+<span class="n">model</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
+                 ColumnTransformer(transformers=[(&#x27;num&#x27;,
+                                                  Pipeline(steps=[(&#x27;imputer&#x27;,
+                                                                   SimpleImputer(strategy=&#x27;median&#x27;)),
+                                                                  (&#x27;scaler&#x27;,
+                                                                   StandardScaler())]),
+                                                  [&#x27;LotArea&#x27;, &#x27;FullBath&#x27;,
+                                                   &#x27;HalfBath&#x27;]),
+                                                 (&#x27;cat&#x27;,
+                                                  OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                                  [&#x27;Neighborhood&#x27;,
+                                                   &#x27;HouseStyle&#x27;])])),
+                (&#x27;classifier&#x27;, LogisticRegression())])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" ><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
+                 ColumnTransformer(transformers=[(&#x27;num&#x27;,
+                                                  Pipeline(steps=[(&#x27;imputer&#x27;,
+                                                                   SimpleImputer(strategy=&#x27;median&#x27;)),
+                                                                  (&#x27;scaler&#x27;,
+                                                                   StandardScaler())]),
+                                                  [&#x27;LotArea&#x27;, &#x27;FullBath&#x27;,
+                                                   &#x27;HalfBath&#x27;]),
+                                                 (&#x27;cat&#x27;,
+                                                  OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                                  [&#x27;Neighborhood&#x27;,
+                                                   &#x27;HouseStyle&#x27;])])),
+                (&#x27;classifier&#x27;, LogisticRegression())])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">preprocessor: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[(&#x27;num&#x27;,
+                                 Pipeline(steps=[(&#x27;imputer&#x27;,
+                                                  SimpleImputer(strategy=&#x27;median&#x27;)),
+                                                 (&#x27;scaler&#x27;, StandardScaler())]),
+                                 [&#x27;LotArea&#x27;, &#x27;FullBath&#x27;, &#x27;HalfBath&#x27;]),
+                                (&#x27;cat&#x27;, OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                 [&#x27;Neighborhood&#x27;, &#x27;HouseStyle&#x27;])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">num</label><div class="sk-toggleable__content"><pre>[&#x27;LotArea&#x27;, &#x27;FullBath&#x27;, &#x27;HalfBath&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer(strategy=&#x27;median&#x27;)</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" ><label for="sk-estimator-id-6" class="sk-toggleable__label sk-toggleable__label-arrow">cat</label><div class="sk-toggleable__content"><pre>[&#x27;Neighborhood&#x27;, &#x27;HouseStyle&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" ><label for="sk-estimator-id-7" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder(handle_unknown=&#x27;ignore&#x27;)</pre></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox" ><label for="sk-estimator-id-8" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div></div></div></div></div></div></div>
+</div>
+<p><strong>Score the model</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_validate</span>
+
+
+<span class="n">cv_results</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cv_results</span><span class="p">[</span><span class="s1">&#39;test_score&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8589041095890411
+0.017649450310582356
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="overfitting-and-underfitting">
+<h1>Overfitting and underfitting<a class="headerlink" href="#overfitting-and-underfitting" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=xErJGDwWqys&amp;list=PL2okA_2qDJ-m44KooOI7x8tu85wr4ez4f&amp;index=6&amp;ab_channel=InriaLearningLab">Video</a></p>
+<p>There is a tradeoff between the complexity of models and how it relates to generalizes</p>
+<p>Complex Models</p>
+<ul class="simple">
+<li><p>Fit too well to the data seen and do not generalize</p></li>
+</ul>
+<p>Simple Model</p>
+<ul class="simple">
+<li><p>Fit poorly on the data seen, capture no noise, but also can’t do a good job in generalizability</p></li>
+</ul>
+</section>
+<section id="comparing-training-and-test-errors">
+<h1>Comparing Training and Test Errors<a class="headerlink" href="#comparing-training-and-test-errors" title="Permalink to this heading">#</a></h1>
+<p>We will focus on changes arising from two aspects</p>
+<ul class="simple">
+<li><p>Varying Complexity: validation curves –&gt; Changing the parameters of the model</p></li>
+<li><p>Varying Sample Size : learning curves –&gt; changing the size of the data</p></li>
+</ul>
+<p><strong>Validation Curves</strong></p>
+<p><img alt="image.png" src="attachment:image.png" /></p>
+<p><strong>Learning Curves</strong></p>
+<p>The two error rates converge as the data size starts increasing. The model learns enough pattern so as to show similar behaviour on train and test data</p>
+<p><img alt="image.png" src="attachment:image.png" /></p>
+<p>In the previous scenario, a 9 degree polynomial model was overfitting, however with the addition of the data, its performance improved.</p>
+<p>Also, note that the performance improvement will stop after a certain threshold as there is still noise in the data generating process and we won’t be able to override that</p>
+<p><strong>Model Complexity</strong></p>
+<p>The model complexity doesn’t just depend on the model parameter, but rather on the model family as well.</p>
+<p>Choice of the family of model is known as “Inductive Bias”–&gt; The shape of prediction function that one model class will favor over another. Hence, they have different notion of complexity</p>
+<p><img alt="image.png" src="attachment:image.png" /></p>
+<p>For every model, we can go through the regularization process to reduce the complexity of the model</p>
+<p><img alt="image.png" src="attachment:image.png" /></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Evaluate the generalization performance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#viz-sklearn-pipelines">Viz Sklearn Pipelines</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-pipeline">Creating a pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-and-underfitting">Overfitting and underfitting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-training-and-test-errors">Comparing Training and Test Errors</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vikesh K
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

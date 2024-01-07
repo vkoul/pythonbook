@@ -66,6 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '05Missing_Values_Treatment';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="⚖️ Data Scaling Methods" href="06Scaling_Variables.html" />
     <link rel="prev" title="🐼📊 Pandas inbuilt .plot() methods" href="04Pandas_Plotting.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,9 +195,20 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Special cases</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Pre-processing</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">🔎 Missing Values Treatment</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06Scaling_Variables.html">⚖️ Data Scaling Methods</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ML Techniques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="07K-NN_Hyperparameters.html">📏K-NN Hyperparamaters</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08DecisionTree_Exploration.html">🌲 Decision Tree Visualization</a></li>
 
 </ul>
 
@@ -393,8 +405,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">🔎 Missing Values Treatment</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-modules-and-data">Importing Modules and data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-few-enteries">Check few enteries</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-modules-and-data">Importing Modules and data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-count">Missing value count</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-share">Missing value share</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-missing-values">Visualize the missing values</a></li>
@@ -430,7 +441,7 @@ document.write(`
 <p>👨‍🏫 <strong>Vikesh K</strong><br />
 📓 <strong>Lab 05</strong></p>
 </div><p>💡  <span style='font-family:Georgia'>
-<font color= darkred> <strong>“It doesn’t get easier, you get better”</strong>
+<font color= darkred> <strong>“It does not matter how slowly you go as long as you do not stop” - Confucius</strong>
 </font> 💡</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="lab-agenda">
@@ -442,7 +453,7 @@ document.write(`
 </ul>
 <div/><div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>**Missing values is an important area of consideration when doing data analysis. First of all, the presence of missing value means that you maybe lacking important information which is crucial to take the right decisions based on the data. It could also mean something amiss in the data-collection method. We can’t also build a machine learning model with missing values in the data. Hence, we need to rectify it.
+<p>Missing values is an important area of consideration when doing data analysis. First of all, the presence of missing value means that you maybe lacking important information which is crucial to take the right decisions based on the data. It could also mean something amiss in the data-collection method. We can’t also build a machine learning model with missing values in the data. Hence, we need to rectify it.
 Missing value treatment like outlier treatment needs domain understanding. How should we impute a missing value, should we drop it? All of these questions necessitate that you understand the business context and the implication of these actions.</p>
 <p>In the notebook we will focus on different operations to deal with missing values.</p>
 </div>
@@ -454,6 +465,9 @@ Missing value treatment like outlier treatment needs domain understanding. How s
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -461,23 +475,10 @@ Missing value treatment like outlier treatment needs domain understanding. How s
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/vkoul/data/main/misc/titanic.csv&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="check-few-enteries">
-<h2>Check few enteries<a class="headerlink" href="#check-few-enteries" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1257,7 +1258,7 @@ dtype: int64
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>**<code class="docutils literal notranslate"><span class="pre">Cabin</span></code> column is a tricky one. First of all it has 77% missing values and also, there is no clear way we can fill in this missing value. It is just a label of the cabins. Secondly, it won’t be useful for any data analysis that we plan for Titanic data, hence we can drop the whole column.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Cabin</span></code> column is a tricky one. First of all it has 77% missing values and also, there is no clear way we can fill in this missing value. It is just a label of the cabins. Secondly, it won’t be useful for any data analysis that we plan for Titanic data, hence we can drop the whole column.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1297,16 +1298,7 @@ dtype: int64
 <p><strong>Please focus on this section when you cover the ML topics</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">KNNImputer</span>
-
-<span class="n">imputer</span> <span class="o">=</span> <span class="n">KNNImputer</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># creating a copy from the original dataset</span>
 </pre></div>
 </div>
 </div>
@@ -1332,6 +1324,16 @@ SibSp         0
 Parch         0
 Fare          0
 dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Initiating the imputer</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">KNNImputer</span>
+
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">KNNImputer</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1434,6 +1436,15 @@ dtype: int64
         <p class="prev-next-title">🐼📊 Pandas inbuilt .plot() methods</p>
       </div>
     </a>
+    <a class="right-next"
+       href="06Scaling_Variables.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">⚖️ Data Scaling Methods</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1451,8 +1462,7 @@ dtype: int64
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">🔎 Missing Values Treatment</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-modules-and-data">Importing Modules and data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-few-enteries">Check few enteries</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-modules-and-data">Importing Modules and data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-count">Missing value count</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-share">Missing value share</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-missing-values">Visualize the missing values</a></li>

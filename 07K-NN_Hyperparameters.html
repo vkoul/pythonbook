@@ -1,0 +1,1239 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>📏K-NN Hyperparamaters &#8212; Python Examples</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07K-NN_Hyperparameters';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="🌲 Decision Tree Visualization" href="08DecisionTree_Exploration.html" />
+    <link rel="prev" title="⚖️ Data Scaling Methods" href="06Scaling_Variables.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Python Examples - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Python Examples - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Python Example Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01Python_Data_Types.html">🐍 Python Data Types</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="02Python_Data_Structure.html">🐍 Python Data Structure</a></li>
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03Pandas_Overview.html">🐼 Pandas Overview</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="04Pandas_Plotting.html">🐼📊 Pandas inbuilt .plot() methods</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Pre-processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05Missing_Values_Treatment.html">🔎 Missing Values Treatment</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06Scaling_Variables.html">⚖️ Data Scaling Methods</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ML Techniques</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">📏K-NN Hyperparamaters</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08DecisionTree_Exploration.html">🌲 Decision Tree Visualization</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F07K-NN_Hyperparameters.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/07K-NN_Hyperparameters.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>📏K-NN Hyperparamaters</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">📏K-NN Hyperparamaters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-modules-and-data">Importing Modules and data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-data">Exploring the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train Test Split</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-effect-of-stratifcation-effect">Checking the effect of Stratifcation Effect</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-model-with-3-neighbours">Building the model with 3 neighbours</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-scores-across-values-of-k">Accuracy scores across values of k</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualise-the-results">Visualise the results</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="alert alert-block alert-success">
+<section class="tex2jax_ignore mathjax_ignore" id="k-nn-hyperparamaters">
+<h1>📏K-NN Hyperparamaters<a class="headerlink" href="#k-nn-hyperparamaters" title="Permalink to this heading">#</a></h1>
+<p>👨‍🏫 <strong>Vikesh K</strong><br />
+📓 <strong>Lab 07</strong></p>
+</div><p>💡  <span style='font-family:Georgia'>
+<font color= darkred> <strong>“There is no substitute for hard work”</strong>
+</font> 💡</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lab-agenda">
+<h1>📝Lab Agenda<a class="headerlink" href="#lab-agenda" title="Permalink to this heading">#</a></h1>
+<p>We will cover:</p>
+<ul class="simple">
+<li><p>sklearn datasets</p></li>
+<li><p>train-test split with stratification</p></li>
+<li><p>Model Building with different values of k in k-nn</p></li>
+<li><p>Visualize the accuracy score for different k</p></li>
+</ul>
+<section id="importing-modules-and-data">
+<h2>Importing Modules and data<a class="headerlink" href="#importing-modules-and-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Modules ran&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Modules ran
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger"> 
+<p><strong>💡 We will be using the Wisconsin Cancer Dataset to build a <code class="docutils literal notranslate"><span class="pre">k-nn</span></code> model</strong></p>
+<p><strong>📝 Please read more about the Wisconsin Breast cancer dataset <a class="reference external" href="https://scikit-learn.org/stable/datasets/toy_dataset.html">here</a></strong>.[<em>scroll down in the page</em>]</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/vkoul/data/main/misc/wisconsin.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>diagnosis</th>
+      <th>radius_mean</th>
+      <th>texture_mean</th>
+      <th>perimeter_mean</th>
+      <th>area_mean</th>
+      <th>smoothness_mean</th>
+      <th>compactness_mean</th>
+      <th>concavity_mean</th>
+      <th>concave points_mean</th>
+      <th>symmetry_mean</th>
+      <th>...</th>
+      <th>radius_worst</th>
+      <th>texture_worst</th>
+      <th>perimeter_worst</th>
+      <th>area_worst</th>
+      <th>smoothness_worst</th>
+      <th>compactness_worst</th>
+      <th>concavity_worst</th>
+      <th>concave points_worst</th>
+      <th>symmetry_worst</th>
+      <th>fractal_dimension_worst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>17.99</td>
+      <td>10.38</td>
+      <td>122.80</td>
+      <td>1001.0</td>
+      <td>0.11840</td>
+      <td>0.27760</td>
+      <td>0.3001</td>
+      <td>0.14710</td>
+      <td>0.2419</td>
+      <td>...</td>
+      <td>25.38</td>
+      <td>17.33</td>
+      <td>184.60</td>
+      <td>2019.0</td>
+      <td>0.1622</td>
+      <td>0.6656</td>
+      <td>0.7119</td>
+      <td>0.2654</td>
+      <td>0.4601</td>
+      <td>0.11890</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>20.57</td>
+      <td>17.77</td>
+      <td>132.90</td>
+      <td>1326.0</td>
+      <td>0.08474</td>
+      <td>0.07864</td>
+      <td>0.0869</td>
+      <td>0.07017</td>
+      <td>0.1812</td>
+      <td>...</td>
+      <td>24.99</td>
+      <td>23.41</td>
+      <td>158.80</td>
+      <td>1956.0</td>
+      <td>0.1238</td>
+      <td>0.1866</td>
+      <td>0.2416</td>
+      <td>0.1860</td>
+      <td>0.2750</td>
+      <td>0.08902</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>19.69</td>
+      <td>21.25</td>
+      <td>130.00</td>
+      <td>1203.0</td>
+      <td>0.10960</td>
+      <td>0.15990</td>
+      <td>0.1974</td>
+      <td>0.12790</td>
+      <td>0.2069</td>
+      <td>...</td>
+      <td>23.57</td>
+      <td>25.53</td>
+      <td>152.50</td>
+      <td>1709.0</td>
+      <td>0.1444</td>
+      <td>0.4245</td>
+      <td>0.4504</td>
+      <td>0.2430</td>
+      <td>0.3613</td>
+      <td>0.08758</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>11.42</td>
+      <td>20.38</td>
+      <td>77.58</td>
+      <td>386.1</td>
+      <td>0.14250</td>
+      <td>0.28390</td>
+      <td>0.2414</td>
+      <td>0.10520</td>
+      <td>0.2597</td>
+      <td>...</td>
+      <td>14.91</td>
+      <td>26.50</td>
+      <td>98.87</td>
+      <td>567.7</td>
+      <td>0.2098</td>
+      <td>0.8663</td>
+      <td>0.6869</td>
+      <td>0.2575</td>
+      <td>0.6638</td>
+      <td>0.17300</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>20.29</td>
+      <td>14.34</td>
+      <td>135.10</td>
+      <td>1297.0</td>
+      <td>0.10030</td>
+      <td>0.13280</td>
+      <td>0.1980</td>
+      <td>0.10430</td>
+      <td>0.1809</td>
+      <td>...</td>
+      <td>22.54</td>
+      <td>16.67</td>
+      <td>152.20</td>
+      <td>1575.0</td>
+      <td>0.1374</td>
+      <td>0.2050</td>
+      <td>0.4000</td>
+      <td>0.1625</td>
+      <td>0.2364</td>
+      <td>0.07678</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 31 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="exploring-the-data">
+<h2>Exploring the data<a class="headerlink" href="#exploring-the-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(569, 31)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>diagnosis                  0
+radius_mean                0
+texture_mean               0
+perimeter_mean             0
+area_mean                  0
+smoothness_mean            0
+compactness_mean           0
+concavity_mean             0
+concave points_mean        0
+symmetry_mean              0
+fractal_dimension_mean     0
+radius_se                  0
+texture_se                 0
+perimeter_se               0
+area_se                    0
+smoothness_se              0
+compactness_se             0
+concavity_se               0
+concave points_se          0
+symmetry_se                0
+fractal_dimension_se       0
+radius_worst               0
+texture_worst              0
+perimeter_worst            0
+area_worst                 0
+smoothness_worst           0
+compactness_worst          0
+concavity_worst            0
+concave points_worst       0
+symmetry_worst             0
+fractal_dimension_worst    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 569 entries, 0 to 568
+Data columns (total 31 columns):
+ #   Column                   Non-Null Count  Dtype  
+---  ------                   --------------  -----  
+ 0   diagnosis                569 non-null    int64  
+ 1   radius_mean              569 non-null    float64
+ 2   texture_mean             569 non-null    float64
+ 3   perimeter_mean           569 non-null    float64
+ 4   area_mean                569 non-null    float64
+ 5   smoothness_mean          569 non-null    float64
+ 6   compactness_mean         569 non-null    float64
+ 7   concavity_mean           569 non-null    float64
+ 8   concave points_mean      569 non-null    float64
+ 9   symmetry_mean            569 non-null    float64
+ 10  fractal_dimension_mean   569 non-null    float64
+ 11  radius_se                569 non-null    float64
+ 12  texture_se               569 non-null    float64
+ 13  perimeter_se             569 non-null    float64
+ 14  area_se                  569 non-null    float64
+ 15  smoothness_se            569 non-null    float64
+ 16  compactness_se           569 non-null    float64
+ 17  concavity_se             569 non-null    float64
+ 18  concave points_se        569 non-null    float64
+ 19  symmetry_se              569 non-null    float64
+ 20  fractal_dimension_se     569 non-null    float64
+ 21  radius_worst             569 non-null    float64
+ 22  texture_worst            569 non-null    float64
+ 23  perimeter_worst          569 non-null    float64
+ 24  area_worst               569 non-null    float64
+ 25  smoothness_worst         569 non-null    float64
+ 26  compactness_worst        569 non-null    float64
+ 27  concavity_worst          569 non-null    float64
+ 28  concave points_worst     569 non-null    float64
+ 29  symmetry_worst           569 non-null    float64
+ 30  fractal_dimension_worst  569 non-null    float64
+dtypes: float64(30), int64(1)
+memory usage: 137.9 KB
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Split the dataset into Train and Test</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;diagnosis&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;diagnosis&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger"> 
+<p><strong>💡Stratified Train-Test Splits</strong><br />
+One final consideration is for classification problems only.</p>
+<p>Some classification problems do not have a balanced number of examples for each class label. As such, it is desirable to split the dataset into train and test sets in a way that preserves the same proportions of examples in each class as observed in the original dataset.</p>
+<p>This is called a stratified train-test split.</p>
+<p>We can achieve this by setting the <code class="docutils literal notranslate"><span class="pre">stratify</span></code> argument to the y component of the original dataset. This will be used by the <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> function to ensure that both the train and test sets have the proportion of examples in each class that is present in the provided “y” array.</p>
+<p>Source: <a class="reference external" href="https://machinelearningmastery.com/train-test-split-for-evaluating-machine-learning-algorithms/#:~:text=Stratified%20Train%2DTest%20Splits,-One%20final%20consideration&amp;text=As%20such%2C%20it%20is%20desirable,a%20stratified%20train%2Dtest%20split.">MachineLearning Mastery</a></p>
+<div/></section>
+<section id="train-test-split">
+<h2>Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> 
+                                                    <span class="p">,</span><span class="n">stratify</span> <span class="o">=</span> <span class="n">y</span> <span class="c1"># stratification </span>
+                                                    <span class="p">,</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">66</span> <span class="c1"># for reproducibility</span>
+                                                    <span class="p">,</span><span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(455, 30)
+(114, 30)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="checking-the-effect-of-stratifcation-effect">
+<h3>Checking the effect of Stratifcation Effect<a class="headerlink" href="#checking-the-effect-of-stratifcation-effect" title="Permalink to this heading">#</a></h3>
+<p><strong>Overall Distribution</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>proportion</th>
+    </tr>
+    <tr>
+      <th>diagnosis</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.63</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.37</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Train Data Distribution</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>proportion</th>
+    </tr>
+    <tr>
+      <th>diagnosis</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.63</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.37</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Test Data Distribution</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_test</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>proportion</th>
+    </tr>
+    <tr>
+      <th>diagnosis</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.63</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.37</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="alert alert-block alert-info"> 
+<p>👨🏼‍💻<strong>Run the above ratio check after commenting out the <code class="docutils literal notranslate"><span class="pre">stratify</span></code> argument in <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code>. Note down your findings</strong></p>
+</section>
+</section>
+<section id="building-the-model-with-3-neighbours">
+<h2>Building the model with 3 neighbours<a class="headerlink" href="#building-the-model-with-3-neighbours" title="Permalink to this heading">#</a></h2>
+<p><strong>You may get errors with the code below if your are using Sklearn version 1.3.0. In that case, you would need to install the version 1.2.2 of sklearn and may also need to install <code class="docutils literal notranslate"><span class="pre">threadpoolctl==3.1.0</span></code> to remove the <code class="docutils literal notranslate"><span class="pre">split</span></code> error</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn</span>
+
+<span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.2.2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install threadpoolctl==3.1.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><a class="reference external" href="https://github.com/scikit-learn/scikit-learn/issues/26768">Sklearn Error</a></strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip uninstall scikit-learn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install scikit-learn==1.2.2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the model</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># fit the model </span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># # record training set accuracy</span>
+<span class="n">train_acc</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The train data accuracy is </span><span class="si">{</span><span class="n">train_acc</span><span class="w"> </span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># # record test accuracy</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The test data accuracy is </span><span class="si">{</span><span class="n">test_acc</span><span class="w"> </span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The train data accuracy is 95.82%
+The test data accuracy is 91.23%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accuracy-scores-across-values-of-k">
+<h2>Accuracy scores across values of k<a class="headerlink" href="#accuracy-scores-across-values-of-k" title="Permalink to this heading">#</a></h2>
+<p><strong>We will make use of the for- loop to run k-nn models, varying the <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> argument of the function</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># empty list that will be populated</span>
+<span class="n">training_accuracy</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="n">test_accuracy</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># try n_neighbors from 1 to 51</span>
+<span class="n">neighbors_settings</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n_neighbors</span> <span class="ow">in</span> <span class="n">neighbors_settings</span><span class="p">:</span>
+    
+    <span class="c1"># build the model</span>
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span> <span class="n">n_neighbors</span><span class="p">)</span>
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    
+    <span class="c1"># record training set accuracy</span>
+    <span class="n">training_accuracy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+    
+    <span class="c1"># record generalization accuracy</span>
+    <span class="n">test_accuracy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><a class="reference external" href="https://docs.python.org/3/library/pprint.html"><code class="docutils literal notranslate"><span class="pre">pprint</span></code></a> provides a capability to “pretty-print” arbitrary Python data structures</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pprint(test_accuracy)</span>
+<span class="c1"># # print(&quot;-------&quot;)</span>
+<span class="c1"># pprint(training_accuracy)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">test_accuracy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">training_accuracy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualise-the-results">
+<h2>Visualise the results<a class="headerlink" href="#visualise-the-results" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">neighbors_settings</span><span class="p">,</span> <span class="n">training_accuracy</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;train data accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">neighbors_settings</span><span class="p">,</span> <span class="n">test_accuracy</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span>  <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;test data accuracy&quot;</span><span class="p">)</span>
+
+<span class="c1"># highlight the max and min accuracy values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">test_accuracy</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">test_accuracy</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">test_accuracy</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">test_accuracy</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;n_neighbors&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Accuracy scores for different values of `k` in train and test data&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/68cad9a51d7e03be78c036a4d0c1e27ec07486a4c0518de23939b8e791193464.png" src="_images/68cad9a51d7e03be78c036a4d0c1e27ec07486a4c0518de23939b8e791193464.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06Scaling_Variables.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">⚖️ Data Scaling Methods</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="08DecisionTree_Exploration.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">🌲 Decision Tree Visualization</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">📏K-NN Hyperparamaters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-modules-and-data">Importing Modules and data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-data">Exploring the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train Test Split</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-effect-of-stratifcation-effect">Checking the effect of Stratifcation Effect</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-model-with-3-neighbours">Building the model with 3 neighbours</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-scores-across-values-of-k">Accuracy scores across values of k</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualise-the-results">Visualise the results</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vikesh K
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
