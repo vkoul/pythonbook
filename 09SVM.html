@@ -171,52 +171,24 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01Python_Data_Types.html">🐍 Python Data Types</a></li>
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="02Python_Data_Structure.html">🐍 Python Data Structure</a></li>
-
-
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Data Analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03Pandas_Overview.html">🐼 Pandas Overview</a></li>
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="04Pandas_Plotting.html">🐼📊 Pandas inbuilt .plot() methods</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="04Pandas_Plotting.html">🐼📊 Pandas inbuilt.plot() methods</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Pre-processing</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="05Missing_Values_Treatment.html">🔎 Missing Values Treatment</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="06Scaling_Variables.html">⚖️ Data Scaling Methods</a></li>
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">ML Techniques</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="07K-NN_Hyperparameters.html">📏K-NN Hyperparamaters</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="08DecisionTree_Exploration.html">🌲 Decision Tree Visualization</a></li>
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">🤖 Support Vector Machines</a></li>
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="10Clustering.html">🌀Clustering</a></li>
-
-
 </ul>
 
     </div>
@@ -410,8 +382,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">🤖 Support Vector Machines</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-machines-overview">Support Vector Machines Overview</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algo-steps">Algo Steps</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
@@ -419,9 +390,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usages">Usages</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-wine-data">📓 Case Study : Wine Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-wine-data">📓 Case Study : Wine Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-load-and-inspect">Data load and inspect</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-viz">Data Viz</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-modeling">Data Modeling</a><ul class="nav section-nav flex-column">
@@ -437,11 +406,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-classifier">Logistic Regression Classifier</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-material">📚 Reference material</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-material">📚 Reference material</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -452,7 +418,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="alert alert-block alert-success">
+  <h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#🤖-Support-Vector-Machines" data-toc-modified-id="🤖-Support-Vector-Machines-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>🤖 Support Vector Machines</a></span><ul class="toc-item"><li><span><a href="#📝Lab-Agenda" data-toc-modified-id="📝Lab-Agenda-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>📝Lab Agenda</a></span></li><li><span><a href="#Support-Vector-Machines-Overview" data-toc-modified-id="Support-Vector-Machines-Overview-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Support Vector Machines Overview</a></span><ul class="toc-item"><li><span><a href="#Algo-Steps" data-toc-modified-id="Algo-Steps-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Algo Steps</a></span></li><li><span><a href="#Advantages" data-toc-modified-id="Advantages-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>Advantages</a></span></li><li><span><a href="#Disadvantages" data-toc-modified-id="Disadvantages-1.2.3"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span>Disadvantages</a></span></li><li><span><a href="#Usages" data-toc-modified-id="Usages-1.2.4"><span class="toc-item-num">1.2.4&nbsp;&nbsp;</span>Usages</a></span></li></ul></li><li><span><a href="#📓-Case-Study-:-Wine-Data" data-toc-modified-id="📓-Case-Study-:-Wine-Data-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>📓 Case Study : Wine Data</a></span></li><li><span><a href="#Data-load-and-inspect" data-toc-modified-id="Data-load-and-inspect-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Data load and inspect</a></span></li><li><span><a href="#Data-Viz" data-toc-modified-id="Data-Viz-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Data Viz</a></span></li><li><span><a href="#Data-Modeling" data-toc-modified-id="Data-Modeling-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Data Modeling</a></span><ul class="toc-item"><li><span><a href="#Create-the-Feature-and-Target-Variable" data-toc-modified-id="Create-the-Feature-and-Target-Variable-1.6.1"><span class="toc-item-num">1.6.1&nbsp;&nbsp;</span>Create the Feature and Target Variable</a></span></li><li><span><a href="#Standard-Scaling" data-toc-modified-id="Standard-Scaling-1.6.2"><span class="toc-item-num">1.6.2&nbsp;&nbsp;</span>Standard Scaling</a></span></li><li><span><a href="#Building-a-SVM-Classifier" data-toc-modified-id="Building-a-SVM-Classifier-1.6.3"><span class="toc-item-num">1.6.3&nbsp;&nbsp;</span>Building a SVM Classifier</a></span></li><li><span><a href="#Highlighting-the-use-of-support-vectors" data-toc-modified-id="Highlighting-the-use-of-support-vectors-1.6.4"><span class="toc-item-num">1.6.4&nbsp;&nbsp;</span>Highlighting the use of support vectors</a></span></li></ul></li><li><span><a href="#Comparison-of-SVM-with-other-Classification-Models" data-toc-modified-id="Comparison-of-SVM-with-other-Classification-Models-1.7"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>Comparison of SVM with other Classification Models</a></span><ul class="toc-item"><li><span><a href="#Decision-Tree-Classifier" data-toc-modified-id="Decision-Tree-Classifier-1.7.1"><span class="toc-item-num">1.7.1&nbsp;&nbsp;</span>Decision Tree Classifier</a></span></li><li><span><a href="#Random-Forest-Classifier" data-toc-modified-id="Random-Forest-Classifier-1.7.2"><span class="toc-item-num">1.7.2&nbsp;&nbsp;</span>Random Forest Classifier</a></span></li><li><span><a href="#Logistic-Regression-Classifier" data-toc-modified-id="Logistic-Regression-Classifier-1.7.3"><span class="toc-item-num">1.7.3&nbsp;&nbsp;</span>Logistic Regression Classifier</a></span></li></ul></li><li><span><a href="#📚-Reference-material" data-toc-modified-id="📚-Reference-material-1.8"><span class="toc-item-num">1.8&nbsp;&nbsp;</span>📚 Reference material</a></span></li></ul></li></ul></div><div class="alert alert-block alert-success">
 <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machines">
 <h1>🤖 Support Vector Machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this heading">#</a></h1>
 <p>👨‍🏫 <strong>Vikesh K</strong><br />
@@ -460,17 +427,16 @@ document.write(`
 </div><p>💡  <span style='font-family:Georgia'>
 <font color= darkred> <strong>“Work hard in silence. Let success make the noise”</strong>
 </font> 💡</p>
-<div class="alert alert-block alert-success">
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lab-agenda">
-<h1>📝Lab Agenda<a class="headerlink" href="#lab-agenda" title="Permalink to this heading">#</a></h1>
+<section id="lab-agenda">
+<h2>📝Lab Agenda<a class="headerlink" href="#lab-agenda" title="Permalink to this heading">#</a></h2>
 <p>We will cover:</p>
 <ul class="simple">
 <li><p>Fitting SVM model to numerical data with its variants</p></li>
 <li><p>Visualizing the decision boundaries of SVM</p></li>
 <li><p>Comparing the SVM results against other Classifiers</p></li>
 </ul>
-</div><div class="alert alert-block alert-danger">
+<div class="alert alert-block alert-danger">
+</section>
 <section id="support-vector-machines-overview">
 <h2>Support Vector Machines Overview<a class="headerlink" href="#support-vector-machines-overview" title="Permalink to this heading">#</a></h2>
 <p><em><strong>Technique :  Classifies by finding a separator</strong></em></p>
@@ -515,14 +481,12 @@ document.write(`
 <li><p>Good for Gene Classification</p></li>
 <li><p>Other classification tasks</p></li>
 </ul>
- </div><div class="alert alert-block alert-success">
+ </div></section>
 </section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="case-study-wine-data">
-<h1>📓 Case Study : Wine Data<a class="headerlink" href="#case-study-wine-data" title="Permalink to this heading">#</a></h1>
+<section id="case-study-wine-data">
+<h2>📓 Case Study : Wine Data<a class="headerlink" href="#case-study-wine-data" title="Permalink to this heading">#</a></h2>
 <p><img alt="wine_glass.jpg" src="attachment:wine_glass.jpg" /></p>
-</div><div class="admonition note">
+<div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>In Python, whenever you want to run/launch a package, you need to <code class="docutils literal notranslate"><span class="pre">import</span></code> it.</strong></p>
 <p>In the smart phone analogy, this is equal to tapping on an app to start it. You would have pre-installed apps and apps that you need to install.
@@ -547,6 +511,7 @@ Remember, like in a phone’s pre-installed apps, <code class="docutils literal 
 <li><p>Proline</p></li>
 </ul>
 </div>
+</section>
 <section id="data-load-and-inspect">
 <h2>Data load and inspect<a class="headerlink" href="#data-load-and-inspect" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -869,9 +834,9 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
         });
         }
         </script>
-        </div><div class="output text_html"><div>                            <div id="7dc9695d-019a-406a-9b48-4e2ab1a4c9fa" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("7dc9695d-019a-406a-9b48-4e2ab1a4c9fa")) {                    Plotly.newPlot(                        "7dc9695d-019a-406a-9b48-4e2ab1a4c9fa",                        [{"alignmentgroup":"True","hovertemplate":"variable=count<br>Wine=%{x}<br>value=%{y}<extra></extra>","legendgroup":"count","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"count","offsetgroup":"count","orientation":"v","showlegend":true,"textposition":"auto","x":[1,0,2],"xaxis":"x","y":[71,59,48],"yaxis":"y","type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Wine"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"value"}},"legend":{"title":{"text":"variable"},"tracegroupgap":0},"margin":{"t":60},"barmode":"relative"},                        {"responsive": true}                    ).then(function(){
+        </div><div class="output text_html"><div>                            <div id="fb173a1e-7f85-4777-961c-7955510d4c0c" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("fb173a1e-7f85-4777-961c-7955510d4c0c")) {                    Plotly.newPlot(                        "fb173a1e-7f85-4777-961c-7955510d4c0c",                        [{"alignmentgroup":"True","hovertemplate":"variable=count<br>Wine=%{x}<br>value=%{y}<extra></extra>","legendgroup":"count","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"count","offsetgroup":"count","orientation":"v","showlegend":true,"textposition":"auto","x":[1,0,2],"xaxis":"x","y":[71,59,48],"yaxis":"y","type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Wine"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"value"}},"legend":{"title":{"text":"variable"},"tracegroupgap":0},"margin":{"t":60},"barmode":"relative"},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('7dc9695d-019a-406a-9b48-4e2ab1a4c9fa');
+var gd = document.getElementById('fb173a1e-7f85-4777-961c-7955510d4c0c');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -1316,7 +1281,7 @@ Number of support vectors: 82
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e443af3f3979937ad5689dfb6b34db6935ef07fc2103712c725ab853ad67ce7.png" src="_images/6e443af3f3979937ad5689dfb6b34db6935ef07fc2103712c725ab853ad67ce7.png" />
+<img alt="_images/f8b9464c5128bf5a6e97c7b1c047a6a0f21fa9f2b8b74a599121f90ab62c4ed8.png" src="_images/f8b9464c5128bf5a6e97c7b1c047a6a0f21fa9f2b8b74a599121f90ab62c4ed8.png" />
 </div>
 </div>
 </section>
@@ -1332,7 +1297,7 @@ Number of support vectors: 82
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d89864e7342ac6043e1e1cc5576ed978e05d58f83a01b52750bc0a0455ce9352.png" src="_images/d89864e7342ac6043e1e1cc5576ed978e05d58f83a01b52750bc0a0455ce9352.png" />
+<img alt="_images/b4238b9d925aa4efced6be4d36f0b9afda5a0865c1b7a5c709a1431cd7beaa88.png" src="_images/b4238b9d925aa4efced6be4d36f0b9afda5a0865c1b7a5c709a1431cd7beaa88.png" />
 </div>
 </div>
 </section>
@@ -1358,9 +1323,8 @@ Number of support vectors: 82
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="reference-material">
-<h1>📚 Reference material<a class="headerlink" href="#reference-material" title="Permalink to this heading">#</a></h1>
+<section id="reference-material">
+<h2>📚 Reference material<a class="headerlink" href="#reference-material" title="Permalink to this heading">#</a></h2>
 <p><strong>Kernels</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.quora.com/What-are-kernels-in-machine-learning-and-SVM-and-why-do-we-need-them/answer/Lili-Jiang?srid=oOgT">What are kernels in machine learning and SVM and why do we need them?</a></p></li>
@@ -1378,6 +1342,7 @@ Number of support vectors: 82
 <li><p><a class="reference external" href="https://blog.uiam.sk/the-wine-dataset-is-divided-by-support-vector-machines/">SVM on Wine analysis</a></p></li>
 </ul>
 <p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/"><strong>Python Data Science handbook</strong></a> - very useful book if you want to learn how to do data science using python. Covers data manipulation, data visualisation and machine learning. Freely available</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1443,8 +1408,7 @@ Number of support vectors: 82
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">🤖 Support Vector Machines</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-machines-overview">Support Vector Machines Overview</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algo-steps">Algo Steps</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
@@ -1452,9 +1416,7 @@ Number of support vectors: 82
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usages">Usages</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-wine-data">📓 Case Study : Wine Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-wine-data">📓 Case Study : Wine Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-load-and-inspect">Data load and inspect</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-viz">Data Viz</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-modeling">Data Modeling</a><ul class="nav section-nav flex-column">
@@ -1470,11 +1432,8 @@ Number of support vectors: 82
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-classifier">Logistic Regression Classifier</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-material">📚 Reference material</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-material">📚 Reference material</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

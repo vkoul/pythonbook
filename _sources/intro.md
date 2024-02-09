@@ -2,11 +2,12 @@
 
 The Python book will introduce the relevant Python concepts that we will be using in the course. 
 
-It covers the main topics, with the idea of introducing the key ideas. This is not an exhaustive reference, please refer to additional material in case you want to go deep into the topics
+It covers selected topics and the key ideas within it. This is not an exhaustive reference, please refer to additional material if you wish to deep dive into the topics
 
-This is a live book and will be constantly updated. 
+**This is a live book and will be constantly updated.**
 
 Happy Learning!
+
 
 
 ```{tableofcontents}

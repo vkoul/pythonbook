@@ -170,52 +170,24 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01Python_Data_Types.html">🐍 Python Data Types</a></li>
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="02Python_Data_Structure.html">🐍 Python Data Structure</a></li>
-
-
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Data Analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03Pandas_Overview.html">🐼 Pandas Overview</a></li>
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="04Pandas_Plotting.html">🐼📊 Pandas inbuilt .plot() methods</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="04Pandas_Plotting.html">🐼📊 Pandas inbuilt.plot() methods</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Pre-processing</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="05Missing_Values_Treatment.html">🔎 Missing Values Treatment</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="06Scaling_Variables.html">⚖️ Data Scaling Methods</a></li>
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">ML Techniques</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="07K-NN_Hyperparameters.html">📏K-NN Hyperparamaters</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="08DecisionTree_Exploration.html">🌲 Decision Tree Visualization</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="09SVM.html">🤖 Support Vector Machines</a></li>
-
-
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">🌀Clustering</a></li>
-
-
 </ul>
 
     </div>
@@ -409,8 +381,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">🌀Clustering</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝 Lab Agenda</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝 Lab Agenda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-overview">Clustering Overview</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-clustering-and-classification">Difference between Clustering and Classification</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-clustering">Why Clustering?</a></li>
@@ -437,11 +408,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchial-clustering">Hierarchial Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-material">📚 Reference material</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-material">📚 Reference material</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -460,16 +428,15 @@ document.write(`
 </div><p>💡  <span style='font-family:Georgia'>
 <font color= darkred> <strong>“Learn as if you will live forever, live like you will die tomorrow.”</strong>
 </font> 💡</p>
-<div class="alert alert-block alert-success">
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lab-agenda">
-<h1>📝 Lab Agenda<a class="headerlink" href="#lab-agenda" title="Permalink to this heading">#</a></h1>
+<section id="lab-agenda">
+<h2>📝 Lab Agenda<a class="headerlink" href="#lab-agenda" title="Permalink to this heading">#</a></h2>
 <p>We will cover:</p>
 <ul class="simple">
 <li><p>Basics of Clustering</p></li>
 <li><p>Case Study</p></li>
 </ul>
- </div><div class="alert alert-block alert-danger">
+<div class="alert alert-block alert-danger">
+</section>
 <section id="clustering-overview">
 <h2>Clustering Overview<a class="headerlink" href="#clustering-overview" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
@@ -1314,15 +1281,15 @@ print(sns.__version__)
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="reference-material">
-<h1>📚 Reference material<a class="headerlink" href="#reference-material" title="Permalink to this heading">#</a></h1>
+<section id="reference-material">
+<h2>📚 Reference material<a class="headerlink" href="#reference-material" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://towardsdatascience.com/k-means-clustering-from-a-to-z-f6242a314e9a">K-Means clustering</a></p></li>
 <li><p><a class="reference external" href="http://benalexkeen.com/feature-scaling-with-scikit-learn/">Feature scaling with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></a></p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html"><code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> all types of pre-processing</a></p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_agglomerative_dendrogram.html#sphx-glr-auto-examples-cluster-plot-agglomerative-dendrogram-py">Plot Hierachial clustering dendograms in Python</a></p></li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1379,8 +1346,7 @@ print(sns.__version__)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">🌀Clustering</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝 Lab Agenda</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝 Lab Agenda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-overview">Clustering Overview</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-clustering-and-classification">Difference between Clustering and Classification</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-clustering">Why Clustering?</a></li>
@@ -1407,11 +1373,8 @@ print(sns.__version__)
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchial-clustering">Hierarchial Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-material">📚 Reference material</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-material">📚 Reference material</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

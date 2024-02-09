@@ -171,45 +171,24 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01Python_Data_Types.html">🐍 Python Data Types</a></li>
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="02Python_Data_Structure.html">🐍 Python Data Structure</a></li>
-
-
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Data Analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03Pandas_Overview.html">🐼 Pandas Overview</a></li>
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="04Pandas_Plotting.html">🐼📊 Pandas inbuilt .plot() methods</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="04Pandas_Plotting.html">🐼📊 Pandas inbuilt.plot() methods</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Pre-processing</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="05Missing_Values_Treatment.html">🔎 Missing Values Treatment</a></li>
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">⚖️ Data Scaling Methods</a></li>
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">ML Techniques</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="07K-NN_Hyperparameters.html">📏K-NN Hyperparamaters</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="08DecisionTree_Exploration.html">🌲 Decision Tree Visualization</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="09SVM.html">🤖 Support Vector Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10Clustering.html">🌀Clustering</a></li>
 </ul>
 
     </div>
@@ -403,24 +382,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">⚖️ Data Scaling Methods</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-scaling">Importance of Scaling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-modules-and-data">Importing Modules and Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-do-scaling">How to do Scaling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisions-between-the-two-methods">Comparisions between the two methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#age-analysis">Age Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-scaling">Min Max Scaling</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-scaling">Standard Scaling</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-do-scaling">How to do Scaling</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisions-between-the-two-methods">Comparisions between the two methods</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#age-analysis">Age Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-scaling">Min Max Scaling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-scaling">Standard Scaling</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fare-analysis">Fare Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fare-analysis">Fare Analysis</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -439,15 +414,15 @@ document.write(`
 </div><p>💡  <span style='font-family:Georgia'>
 <font color= darkred> <strong>“The secret to getting ahead is getting started”</strong>
 </font> 💡</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lab-agenda">
-<h1>📝Lab Agenda<a class="headerlink" href="#lab-agenda" title="Permalink to this heading">#</a></h1>
+<section id="lab-agenda">
+<h2>📝Lab Agenda<a class="headerlink" href="#lab-agenda" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Importance of Scaling</p></li>
 <li><p>How to do Scaling and types</p></li>
 <li><p>Scaling comparision</p></li>
 </ul>
 <div class="alert alert-block alert-info">
+</section>
 <section id="importance-of-scaling">
 <h2>Importance of Scaling<a class="headerlink" href="#importance-of-scaling" title="Permalink to this heading">#</a></h2>
 <p><strong>Scaling is an important pre-processing step for machine learning because it helps to normalize the input data so that it can be more easily compared and processed by the learning algorithm. Here are some reasons why scaling is important</strong>:</p>
@@ -558,9 +533,8 @@ document.write(`
 </div></div></div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="how-to-do-scaling">
-<h1>How to do Scaling<a class="headerlink" href="#how-to-do-scaling" title="Permalink to this heading">#</a></h1>
+<section id="how-to-do-scaling">
+<h2>How to do Scaling<a class="headerlink" href="#how-to-do-scaling" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>For illustration, we will focus on <code class="docutils literal notranslate"><span class="pre">Age</span></code> and <code class="docutils literal notranslate"><span class="pre">Fare</span></code> columns for this task. Idea is to compare the distributions before and after the scaling</strong></p>
@@ -786,11 +760,11 @@ document.write(`
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="comparisions-between-the-two-methods">
-<h1>Comparisions between the two methods<a class="headerlink" href="#comparisions-between-the-two-methods" title="Permalink to this heading">#</a></h1>
+<section id="comparisions-between-the-two-methods">
+<h2>Comparisions between the two methods<a class="headerlink" href="#comparisions-between-the-two-methods" title="Permalink to this heading">#</a></h2>
 <p><strong>We will take each of the column, <code class="docutils literal notranslate"><span class="pre">Age</span></code> and <code class="docutils literal notranslate"><span class="pre">Fare</span></code> and individually apply all the techniques and make a comparision between them</strong></p>
 <section id="age-analysis">
-<h2>Age Analysis<a class="headerlink" href="#age-analysis" title="Permalink to this heading">#</a></h2>
+<h3>Age Analysis<a class="headerlink" href="#age-analysis" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -799,7 +773,7 @@ document.write(`
 </div>
 </div>
 <section id="min-max-scaling">
-<h3><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html">Min Max Scaling</a><a class="headerlink" href="#min-max-scaling" title="Permalink to this heading">#</a></h3>
+<h4><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html">Min Max Scaling</a><a class="headerlink" href="#min-max-scaling" title="Permalink to this heading">#</a></h4>
 <p>Min-Max normalization is a technique used to rescale a feature in the data to a specific range, such as [0, 1]. The formula for min-max normalization is as follows:</p>
 <p><code class="docutils literal notranslate"><span class="pre">X_norm</span> <span class="pre">=</span> <span class="pre">(X</span> <span class="pre">-</span> <span class="pre">X_min)</span> <span class="pre">/</span> <span class="pre">(X_max</span> <span class="pre">-</span> <span class="pre">X_min)</span></code></p>
 <p>where X is the original feature, X_min is the minimum value for that feature, X_max is the maximum value for that feature, and X_norm is the normalized feature.</p>
@@ -820,7 +794,7 @@ document.write(`
 </div>
 </section>
 <section id="standard-scaling">
-<h3><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler">Standard Scaling</a><a class="headerlink" href="#standard-scaling" title="Permalink to this heading">#</a></h3>
+<h4><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler">Standard Scaling</a><a class="headerlink" href="#standard-scaling" title="Permalink to this heading">#</a></h4>
 <p>Standard scaling, also known as standardization, is a technique used in machine learning to transform a feature to have a mean of 0 and a standard deviation of 1. This is useful because it allows features with different units of measurement to be compared on the same scale.</p>
 <p>The formula for standard scaling is as follows:</p>
 <p><code class="docutils literal notranslate"><span class="pre">X_std</span> <span class="pre">=</span> <span class="pre">(X</span> <span class="pre">-</span> <span class="pre">X_mean)</span> <span class="pre">/</span> <span class="pre">X_std</span></code></p>
@@ -1018,7 +992,7 @@ document.write(`
 </section>
 </section>
 <section id="fare-analysis">
-<h2>Fare Analysis<a class="headerlink" href="#fare-analysis" title="Permalink to this heading">#</a></h2>
+<h3>Fare Analysis<a class="headerlink" href="#fare-analysis" title="Permalink to this heading">#</a></h3>
 <p>The column is skewed</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1162,6 +1136,7 @@ document.write(`
 </div>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1226,24 +1201,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">⚖️ Data Scaling Methods</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-agenda">📝Lab Agenda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-scaling">Importance of Scaling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-modules-and-data">Importing Modules and Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-do-scaling">How to do Scaling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisions-between-the-two-methods">Comparisions between the two methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#age-analysis">Age Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-scaling">Min Max Scaling</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-scaling">Standard Scaling</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-do-scaling">How to do Scaling</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisions-between-the-two-methods">Comparisions between the two methods</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#age-analysis">Age Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-scaling">Min Max Scaling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-scaling">Standard Scaling</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fare-analysis">Fare Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fare-analysis">Fare Analysis</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
