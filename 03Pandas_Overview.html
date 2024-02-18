@@ -495,7 +495,7 @@ C:\Users\vkoul\Desktop\DA_Training_book\pythonbook
 </section>
 <section id="creating-pandas-dataframe">
 <h2>Creating Pandas DataFrame<a class="headerlink" href="#creating-pandas-dataframe" title="Permalink to this heading">#</a></h2>
-<p><img alt="pandas_data_structure" src="../images/pandas_data_structure.jpg" /></p>
+<p><img alt="pandas_data_structure" src="_images/pandas_data_structure.jpg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Three ways to create a pandas df:</strong></p>
@@ -703,7 +703,7 @@ C:\Users\vkoul\Desktop\DA_Training_book\pythonbook
 <p>In python, <strong>methods</strong> are functions specfic to an object type. The pandas methods allow you to do different operations on the dataset</p>
 <p>Another aspect is <strong>attributes</strong> are like methods, but instead of transforming the variables or data they are used to give you more information about the data that you have. The attributes don’t have () at the end.</p>
 <p>Pandas is column oriented, many of the methods are applicable at a column level</p>
-<p><img alt="pandas_methods" src="../images/pandas_methods.png" /></p>
+<p><img alt="pandas_methods" src="_images/pandas_methods.png" /></p>
 <p>Source: J Ebener</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -775,7 +775,7 @@ C:\Users\vkoul\Desktop\DA_Training_book\pythonbook
 </section>
 <section id="case-study-titanic">
 <h2>📓 Case Study  - Titanic<a class="headerlink" href="#case-study-titanic" title="Permalink to this heading">#</a></h2>
-<p><img alt="titanic" src="../images/titanic.jpg" /></p>
+<p><img alt="titanic" src="_images/titanic.jpg" /></p>
 <section id="importing-dataset">
 <h3>Importing dataset<a class="headerlink" href="#importing-dataset" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -1389,7 +1389,7 @@ Name: Name, Length: 891, dtype: object
 </div>
 </div>
 <p><strong>Bonus question- Are the character names shown in Titanic movie real?</strong></p>
-<p><img alt="actors" src="../images/actors.png" /></p>
+<p><img alt="actors" src="_images/actors.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 💪 Please write the relevant code here</span>
@@ -3070,7 +3070,7 @@ Name: proportion, dtype: float64
 <section id="grouping-data">
 <h3>Grouping data<a class="headerlink" href="#grouping-data" title="Permalink to this heading">#</a></h3>
 <p><strong>Group by allows you to calculate numeric summaries across a categorical value</strong></p>
-<p><img alt="split_apply_combine" src="../images/split_apply_combine.png" /></p>
+<p><img alt="split_apply_combine" src="_images/split_apply_combine.png" /></p>
 <p><strong>What is the average age for each gender group</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4049,25 +4049,24 @@ dtype: float64
 <p><strong>While working on a problem, you would require to join datasets from different sources. Very important to understand different joins and how to do it in python</strong></p>
 <p><strong>The major joins used are: <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">inner</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">cross</span></code></strong></p>
 <p>The below animations are from <a class="reference external" href="https://www.garrickadenbuie.com/project/tidyexplain/#tidy-data">here</a></p>
-<p><img alt="xy_table" src="../images/xy_table.png" /></p>
 <p><strong>Left join</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;column_name&#39;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span> 
 
 </pre></div>
 </div>
-<p><img alt="left_join" src="../images/left_join.gif" /></p>
+<p><img alt="left_join" src="_images/left_join.gif" /></p>
 <p><strong>Inner join</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;column_name&#39;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;inner&#39;</span><span class="p">)</span> 
 
 </pre></div>
 </div>
-<p><img alt="inner_join" src="../images/inner_join.gif" /></p>
+<p><img alt="inner_join" src="_images/inner_join.gif" /></p>
 <p><strong>Right join</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;column_name&#39;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span> 
 
 </pre></div>
 </div>
-<p><img alt="right_join" src="../images/right_join.gif" /></p>
+<p><img alt="right_join" src="_images/right_join.gif" /></p>
 <p><strong>Lets create a class data-frame which we will join the to titanic dataset</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4317,7 +4316,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\vkoul\AppData\Local\Temp\1\ipykernel_29824\222098466.py:1: UserWarning: Pandas requires version &#39;3.0.5&#39; or newer of &#39;xlsxwriter&#39; (version &#39;3.0.3&#39; currently installed).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\vkoul\AppData\Local\Temp\1\ipykernel_25136\222098466.py:1: UserWarning: Pandas requires version &#39;3.0.5&#39; or newer of &#39;xlsxwriter&#39; (version &#39;3.0.3&#39; currently installed).
   df.to_excel(&quot;Titanic_modified_Python_processed.xlsx&quot;, index = False)
 </pre></div>
 </div>

@@ -448,26 +448,30 @@ document.write(`
 </section>
 <section id="variables-store-values-and-keep-code-organized">
 <h2>Variables store values and keep code organized.<a class="headerlink" href="#variables-store-values-and-keep-code-organized" title="Permalink to this heading">#</a></h2>
+<p>This process of storing something in a variable is often called variable assignment, or simply “assignment” for short. You can assign almost anything to a variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello , World&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> 
+<span class="n">x</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello , World
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>You can then use the stored values for calculations</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="n">y</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 </div>
@@ -533,6 +537,53 @@ Hello
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
 &lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>The breadth of a rectangle is 10 and length is 11. What is the area and the perimeter of the rectangle?</strong></p>
+<p>Calculate the area and perimeter and then take the breadth as 13 and length as 15 and recalculate the values. Calculate this in the normal manner and using proper variables</p>
+<p><strong>Normal way to calculate</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">9</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the area is:&quot;</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+
+<span class="n">perimeter</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the perimeter is:&quot;</span><span class="p">,</span> <span class="n">perimeter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the area is: 72
+the perimeter is: 34
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Using variables</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the length and breadth </span>
+<span class="n">length</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">breadth</span> <span class="o">=</span> <span class="mi">9</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the area is:&quot;</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+
+<span class="n">perimeter</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">length</span> <span class="o">+</span> <span class="n">breadth</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the perimeter is:&quot;</span><span class="p">,</span> <span class="n">perimeter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the area is: 72
+the perimeter is: 34
 </pre></div>
 </div>
 </div>
@@ -978,7 +1029,7 @@ Japan
 </section>
 <section id="data-type-summary">
 <h2>Data Type Summary<a class="headerlink" href="#data-type-summary" title="Permalink to this heading">#</a></h2>
-<p><img alt="python_data_summary" src="../images/python_data_summary.png" /></p>
+<p><img alt="python_data_summary" src="_images/python_data_summary.png" /></p>
 <p>Source: Jovian ML</p>
 <table class="table">
 <thead>
@@ -1143,39 +1194,7 @@ Remember, like in a phone’s pre-installed apps, <code class="docutils literal 
 <p><strong>Can we see the files in the directory?</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span> <span class="c1"># list directory</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;.git&#39;,
- &#39;.ipynb_checkpoints&#39;,
- &#39;01Python_Data_Types.ipynb&#39;,
- &#39;02Python_Data_Structure.ipynb&#39;,
- &#39;03Pandas_Overview.ipynb&#39;,
- &#39;04Pandas_Plotting.ipynb&#39;,
- &#39;05Missing_Values_Treatment.ipynb&#39;,
- &#39;06Scaling_Variables.ipynb&#39;,
- &#39;07K-NN_Hyperparameters.ipynb&#39;,
- &#39;08DecisionTree_Exploration.ipynb&#39;,
- &#39;09SVM.ipynb&#39;,
- &#39;10Clustering.ipynb&#39;,
- &#39;customerspends.csv&#39;,
- &#39;images&#39;,
- &#39;intro.md&#39;,
- &#39;logo.png&#39;,
- &#39;logo2.png&#39;,
- &#39;logo3.PNG&#39;,
- &#39;logo4.PNG&#39;,
- &#39;logo5.PNG&#39;,
- &#39;markdown.md&#39;,
- &#39;README.md&#39;,
- &#39;requirements.txt&#39;,
- &#39;Titanic_modified_Python_processed.csv&#39;,
- &#39;Titanic_modified_Python_processed.xlsx&#39;,
- &#39;_build&#39;,
- &#39;_config.yml&#39;,
- &#39;_toc.yml&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># os.listdir() # list directory</span>
 </pre></div>
 </div>
 </div>
