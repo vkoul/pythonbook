@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '01Python_Data_Types';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="🐍 Python Data Structure" href="02Python_Data_Structure.html" />
+    <link rel="next" title="🐍 Python Data Structure and Functions" href="02Python_Data_Structure_and_Functions.html" />
     <link rel="prev" title="Python Example Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -171,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">🐍 Python Data Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02Python_Data_Structure.html">🐍 Python Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02Python_Data_Structure_and_Functions.html">🐍 Python Data Structure and Functions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Data Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -434,7 +434,7 @@ document.write(`
 <li><p>Conversion</p></li>
 </ul>
 </li>
-<li><p>OS Package</p>
+<li><p>Modules</p>
 <ul>
 <li><p>import</p></li>
 <li><p>installation</p></li>
@@ -510,8 +510,22 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+Hello
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="c1"># show output</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -520,8 +534,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-Hello
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+5
 </pre></div>
 </div>
 </div>
@@ -536,7 +550,7 @@ Hello
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
-&lt;class &#39;str&#39;&gt;
+&lt;class &#39;int&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -546,17 +560,17 @@ Hello
 <p><strong>Normal way to calculate</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">9</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="mi">13</span> <span class="o">*</span> <span class="mi">15</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the area is:&quot;</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
 
-<span class="n">perimeter</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">perimeter</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">13</span> <span class="o">+</span> <span class="mi">15</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the perimeter is:&quot;</span><span class="p">,</span> <span class="n">perimeter</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the area is: 72
-the perimeter is: 34
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the area is: 195
+the perimeter is: 56
 </pre></div>
 </div>
 </div>
@@ -565,8 +579,8 @@ the perimeter is: 34
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the length and breadth </span>
-<span class="n">length</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">breadth</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">length</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">breadth</span> <span class="o">=</span> <span class="mi">19</span>
 </pre></div>
 </div>
 </div>
@@ -582,8 +596,15 @@ the perimeter is: 34
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the area is: 72
-the perimeter is: 34
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the area is: 304
+the perimeter is: 70
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># id(length)</span>
 </pre></div>
 </div>
 </div>
@@ -783,24 +804,28 @@ Japan
 <p><strong>Check the type with <code class="docutils literal notranslate"><span class="pre">int()</span></code> function</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+&lt;class &#39;int&#39;&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45.0
+&lt;class &#39;float&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -1068,6 +1093,13 @@ Remember, like in a phone’s pre-installed apps, <code class="docutils literal 
 <p><strong>You won’t get any message if a package is imported successfully. Only if you do a wrong loading, error message will be shown</strong></p>
 </div>
 <p><strong>While importing you can also use alias, by the command as, this is often done. It helps to make the code crisp</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the module</span>
@@ -1456,11 +1488,11 @@ Remember, like in a phone’s pre-installed apps, <code class="docutils literal 
       </div>
     </a>
     <a class="right-next"
-       href="02Python_Data_Structure.html"
+       href="02Python_Data_Structure_and_Functions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">🐍 Python Data Structure</p>
+        <p class="prev-next-title">🐍 Python Data Structure and Functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1518,13 +1550,6 @@ By Vikesh K
   
   <div class="footer-item">
     
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
   </div>
   
   <div class="footer-item">
